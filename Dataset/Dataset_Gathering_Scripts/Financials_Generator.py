@@ -67,7 +67,7 @@ def thread_pool_executor():
     list_clubber=[ticker_results,tickers_book_value,tickers_evtoebitda,tickers_priceToBook,tickers_marketcap,tickers_priceToSales,tickers_close,tickers_sharesoutstanding,tickers_total_revenue]
     export_data=zip_longest(*list_clubber,fillvalue='')
 
-    with open("Financials.csv",'a',encoding="ISO-8859-1",newline='') as myfile:
+    with open("Dataset\Resultant Dataset\Financials.csv",'a',encoding="ISO-8859-1",newline='') as myfile:
         wr=csv.writer(myfile)
         #wr.writerow(("Ticker","Book Value"))
         wr.writerows(export_data)
@@ -75,14 +75,14 @@ def thread_pool_executor():
 
     holder=list()
 
-    with open("Financials.csv",'r') as f:
+    with open("Dataset\Resultant Dataset\Financials.csv",'r') as f:
         csvreader=csv.reader(f)
         for row in csvreader:
             holder.append(row)
             if not row[1]:
                 holder.remove(row)
 
-    with open("Financials.csv",'w',newline='') as fw:
+    with open("Dataset\Resultant Dataset\Financials.csv",'w',newline='') as fw:
         writer=csv.writer(fw)
         writer.writerows(holder) 
     print("Success")
