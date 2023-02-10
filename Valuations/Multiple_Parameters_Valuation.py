@@ -1,4 +1,5 @@
 import csv 
+import math
 
 #-------------------------------------------------------------------------------------------------------
 #Returns valuation of the requested ticker as per its book value
@@ -54,5 +55,32 @@ def valuation_sales(ticker):
 
     return round(val_sales,2)
 
-print(valuation_book_value("GRAPHITE.NS"))
-print(valuation_sales("GRAPHITE.NS"))
+#-------------------------------------------------------------------------------------------------------
+#Returns valuation of the requested ticker as per Graham
+
+def valuation_graham(ticker):
+    with open("Dataset\Resultant Dataset\Financials.csv",'r') as f:
+        reader=csv.DictReader(f)
+        for row in reader:
+            if(row['Ticker']==ticker):
+                trailingeps=float(row['TrailingEPS'])
+                pricetobook=float(row['PricetoBook'])
+                ltp=float(row['Close'])
+                break 
+                
+        if(pricetobook>1):
+            percentdiff=((pricetobook-1)/pricetobook)*100
+            book_value=ltp-(ltp*percentdiff)/100
+        elif(pricetobook<1):
+            percentdiff=(1-pricetobook)/1*100
+            book_value=ltp+(ltp*percentdiff)/100
+        else:
+            book_value=ltp 
+        
+        val_graham=math.sqrt(22.5*trailingeps*book_value)
+        f.close()
+    
+    return round(val_graham,2)     
+
+#method call 
+print(valuation_graham("GRAPHITE.NS"))
