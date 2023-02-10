@@ -82,5 +82,18 @@ def valuation_graham(ticker):
     
     return round(val_graham,2)     
 
+#-------------------------------------------------------------------------------------------------------
+#Returns valuation of the requested ticker as per its earnings
+
+def valuation_earnings(ticker):
+    with open("Dataset\Resultant Dataset\Financials.csv",'r') as f:
+        reader=csv.DictReader(f)
+        for row in reader:
+            if(row['Ticker']==ticker):
+                trailingeps=float(row['TrailingEPS'])
+                break 
+    
+    return round(12.5*trailingeps,2)
+
 #method call 
-print(valuation_graham("GRAPHITE.NS"))
+print(valuation_earnings("GRAPHITE.NS"))
