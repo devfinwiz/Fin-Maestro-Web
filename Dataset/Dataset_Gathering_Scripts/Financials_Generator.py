@@ -18,6 +18,9 @@ def financials_fetcher(ticker):
             book_value=hold[ticker]['bookValue']
             EVtoEBITDA=hold[ticker]['enterpriseToEbitda']
             priceToBookR=hold[ticker]['priceToBook']
+            forward_pe=hold[ticker]['forwardPE']
+            trailing_eps=hold[ticker]['trailingEps']
+            promoter_holding=hold[ticker]['heldPercentInsiders']
             market_cap=(hold2[ticker]['marketCap'])//10000000
             priceToSales=(hold2[ticker]['priceToSalesTrailing12Months'])
             previous_Close=(hold2[ticker]['previousClose'])
@@ -29,16 +32,16 @@ def financials_fetcher(ticker):
             print(remover)
         
         try:
-            return ticker,book_value,EVtoEBITDA,priceToBookR,market_cap,priceToSales,previous_Close,sharesOutstanding,total_revenue
+            return ticker,book_value,EVtoEBITDA,priceToBookR,market_cap,priceToSales,previous_Close,sharesOutstanding,total_revenue,forward_pe,trailing_eps,promoter_holding
         except:
-            return ticker,None,None,None,None,None,None,None,None
+            return ticker,None,None,None,None,None,None,None,None,None,None,None
 
 #------------------------------------------------------------------------------------------------------------------------------------
 #Executes financial_fetcher() for all tickers in Tickers.csv using threads and stores output in Financials.csv
 
 def thread_pool_executor():
 
-    comp=csv.reader(open("Prerequisites\Tickers.csv"))
+    comp=csv.reader(open("Prerequisites\Test_Tickers.csv"))
 
     for c in comp:
         tickers_list.extend(c)
@@ -48,8 +51,8 @@ def thread_pool_executor():
         tickers=tickers_list[1:]
         results=executor.map(financials_fetcher,tickers)
 
-        ticker_results,tickers_book_value,tickers_evtoebitda,tickers_priceToBook,tickers_close=[],[],[],[],[]
-        tickers_marketcap,tickers_priceToSales,tickers_sharesoutstanding,tickers_total_revenue=[],[],[],[]
+        ticker_results,tickers_book_value,tickers_evtoebitda,tickers_priceToBook,tickers_close,tickers_promoter_holding=[],[],[],[],[],[]
+        tickers_marketcap,tickers_priceToSales,tickers_sharesoutstanding,tickers_total_revenue,tickers_forwardpe,tickers_trailing_eps=[],[],[],[],[],[]
 
         for result in results:
                 
@@ -62,9 +65,11 @@ def thread_pool_executor():
                     tickers_close.append(result[6])
                     tickers_sharesoutstanding.append(result[7])
                     tickers_total_revenue.append(result[8])
+                    tickers_forwardpe.append(result[9])
+                    tickers_trailing_eps.append(result[10])
+                    tickers_promoter_holding.append(result[11])
 
-
-    list_clubber=[ticker_results,tickers_book_value,tickers_evtoebitda,tickers_priceToBook,tickers_marketcap,tickers_priceToSales,tickers_close,tickers_sharesoutstanding,tickers_total_revenue]
+    list_clubber=[ticker_results,tickers_book_value,tickers_evtoebitda,tickers_priceToBook,tickers_marketcap,tickers_priceToSales,tickers_close,tickers_sharesoutstanding,tickers_total_revenue,tickers_forwardpe,tickers_trailing_eps]
     export_data=zip_longest(*list_clubber,fillvalue='')
 
     with open("Dataset\Resultant Dataset\Financials.csv",'a',encoding="ISO-8859-1",newline='') as myfile:
