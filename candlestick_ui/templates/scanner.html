@@ -1,0 +1,136 @@
+{% extends "header.html" %}
+{% block content %}
+<div class="container" style="height:auto;">
+    <br><br><br><br><br>
+    <h3 style="text-align: start; padding-bottom: 30px; font-weight: 300;">Technical Scanner</h3>
+    <form action="/scanner">
+        <select id="pattern" name="pattern">
+            <option value="">-- Select a Pattern --</option>
+            {% for key in candlestick_patterns %}
+            <option value="{{ key }}" {% if pattern==key %}selected="selected" {% endif %}>
+                {{ candlestick_patterns[key] }}</option>
+            {% endfor %}
+        </select>
+        <button class="button" name="pattern" value="pattern"><span>Scan</span></button>
+        <button class="button" name="fet" value="fet"><span>Fetch</span></button>
+        <button class="button" name="state" value="state" data-target="#stateModal" data-toggle="modal"
+            type="button"><span>State</span></button>
+    </form>
+    <div style="color: black;" class="modal fade" id="stateModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">State</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    {{state}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    
+    </script>
+    <table>
+        <tr>
+            <th>SYMBOL</th>
+            <th>COMPANY</th>
+            <th>SIGNAL</th>
+        </tr>
+        {% for stock in stocks %}
+        {% if stocks[stock][pattern] %}
+        <tr>
+            <td>
+                {{ stock }}
+            </td>
+            <td>
+                {{ stocks[stock]['company'] }}
+            </td>
+            <td class="{{ stocks[stock][pattern] }}">
+                {{ stocks[stock][pattern]}}
+            </td>
+        <tr>
+            <td colspan="3">
+                <div id="{{ stock }}"></div>
+
+                                <script>
+                                
+                var chart = LightweightCharts.createChart(document.getElementById("{{stock}}"), { width: 1100, height: 500 });
+                var barSeries{{stock}} = chart.addCandlestickSeries();
+                chart.applyOptions({
+                    crosshair: {mode:0,},
+                    watermark: {
+                        color: 'rgba(255, 255, 255, 0.4)',
+                        visible: true,
+                        text: 'cpanalyzer',
+                        fontSize: 20,
+                        horzAlign: 'left',
+                        vertAlign: 'bottom',
+                    },
+                    layout: {
+                        backgroundColor: '#0a1931',
+                        textColor: '#ffffff',
+                        fontSize: 12,
+                        fontFamily: 'Calibri',
+                    },
+                    grid: {
+                        vertLines: {
+                            visible: false,
+                        },
+                        horzLines: {
+                            visible: false,
+                        },
+                    },
+
+                })
+                tempm = 0;
+                fetch('http://127.0.0.1:5000/getjson?symbol={{stock}}')
+                .then(res => res.json())
+                .then(data => {
+                    const cdata = data.map(d => {
+                    return {time:(new Date(d["Date"])).getTime() / 1000,open:parseFloat(d["Open"]),high:parseFloat(d["High"]),low:parseFloat(d["Low"]),close:parseFloat(d["Close"])}
+                    });
+                    let tempm = 0;
+                    let j = 0;
+                    for (i = cdata.length-1; i >=0  ; i--) {
+                        tempm = cdata[i]["time"];
+                        if (j == {{ stocks[stock]['day'] }}){
+                            break;
+                        }
+                        j = j +1 ;
+                    }
+                    console.log(tempm)
+                    
+                    barSeries{{stock}}.setData(cdata);
+                    tempm = new Date(tempm * 1000).toISOString().substr(0, 10)
+                    console.log(tempm)
+                    barSeries{{stock}}.setMarkers([
+                            {
+                                time: tempm,
+                                position: 'aboveBar',
+                                color: 'red',
+                                shape: 'arrowDown',
+                            },
+                        ]);
+                    console.log("done");
+
+                })
+                .catch(err => console.log(err))
+                
+                
+                chart.timeScale().fitContent();
+
+                </script>
+                <hr size="5px">
+            </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicon//site.webmanifest') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/cardStyle.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/cardScript.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+
+</head>
+
+<body class="dark hero-anime">
+    <div class="navigation-wrap bg-light start-header start-style">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-md navbar-light">
+
+                        <a class="navbar-brand" href="{{ url_for('index') }}"><img
+                                src="{{ url_for('static', filename='icons/logo.png') }}" style="width:50px; height:50px"
+                                alt=""></a>Analyzer
+
+                        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+                            data-target="#collapsibleNavbar" aria-expanded="false">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="navbar-collapse collapse" id="collapsibleNavbar">
+                            <ul class="navbar-nav ml-auto py-4 py-md-0">
+                                <li
+                                    class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 {% if active=='home' %} active {% endif %}">
+                                    <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                                </li>
+                                <li
+                                    class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 {% if active=='scanner' %} active {% endif %}">
+                                    <a class="nav-link" href="{{ url_for('scanner') }}">Scanner</a>
+                                </li>
+                                <li
+                                    class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 {% if active=='pattern' %} active {% endif %}">
+                                    <a class="nav-link" href="{{ url_for('patterns') }}">Patterns</a>
+                                </li>
+                                <li
+                                    class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 {% if active=='about' %} active {% endif %}">
+                                    <a class="nav-link" href="{{ url_for('about') }}">About</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- Site footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div>
+                    <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by
+                        <a href="https://github.com/omkolte17/" target="_blank">Om Kolte</a>.
+                    </p>
+                </div>
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <ul class="social-icons">
+                        <li><a href='https://github.com/omkolte17/' target="_blank"><img
+                                    src="{{ url_for('static', filename='icons/github.svg') }}" title='Github' /></a>
+                        </li>
+                        <li><a href='https://www.linkedin.com/in/omkolte/' target="_blank"><img
+                                    src="{{ url_for('static', filename='icons/linkedin.svg') }}" title='LinkedIn' /></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
