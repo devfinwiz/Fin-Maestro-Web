@@ -36,6 +36,9 @@ def financials_extractor(ticker):
 def valuation_determiner(ticker):
     data=financials_extractor(ticker) 
     mono_duo=['BSE.NS','IEX.NS','CDSL.NS','MCX.NS']
+    fmcg=['TATACONSUM.NS','ITC.NS','VBL.NS','UBL.NS','MARICO.NS','DABUR,NS','BRITANNIA.NS','COLPAL.NS','MCDOWELL-N.NS','NESTLEIND.NS','PGHH.NS','HIDUNILVR.NS','GODREJCP.NS','EMAMILTD.NS','RADICO.NS']
+    bank=['KOTAKBANK.NS','HDFCBANK.NS','ICICIBANK','AXISBANK','SBIN.NS']
+
     #-------------------------------------------------------------------------------
     #VAP (Valuation As Per) Book Value
 
@@ -46,8 +49,8 @@ def valuation_determiner(ticker):
     valuation_result=dict()
     valuation_result['TICKER']=ticker
 
-    if(ticker in mono_duo):
-        max_threshhold=2.1
+    if(ticker in mono_duo or ticker in fmcg or ticker in bank):
+        max_threshhold=2.4
         percent_appreciation=((max_threshhold-pricetobook)/pricetobook)*100
         val_bv=ltp+((ltp*percent_appreciation)/100)
     elif(data['priceToBook']<1.8):
@@ -67,7 +70,7 @@ def valuation_determiner(ticker):
     val_sales=0 #valuation as per sales
     pricetosales=data['priceToSales']
 
-    if(ticker in mono_duo):
+    if(ticker in mono_duo or ticker in fmcg or ticker in bank):
         max_threshhold=2.0
         percent_appreciation=((max_threshhold-pricetosales)/pricetosales)*100
         val_sales=ltp+((ltp*percent_appreciation)/100)
@@ -92,7 +95,7 @@ def valuation_determiner(ticker):
 
     #-------------------------------------------------------------------------------
     #VAP (Valuation As Per) Earnings
-    if(ticker in mono_duo):
+    if(ticker in mono_duo or ticker in fmcg or ticker in bank):
         #print("here3")
         valuation_result['VAP_EARNINGS']=round(27*trailing_EPS,2)
     else:
@@ -102,4 +105,4 @@ def valuation_determiner(ticker):
 
 #---------------------------------------------------------------------------------------------------------------
 #Method call
-#print(valuation_determiner("MCX.NS"))
+print(valuation_determiner("BSE.NS"))
