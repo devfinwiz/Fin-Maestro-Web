@@ -35,7 +35,7 @@ def financials_extractor(ticker):
 
 def valuation_determiner(ticker):
     data=financials_extractor(ticker) 
-
+    mono_duo=['BSE.NS','IEX.NS','CDSL.NS','MCX.NS']
     #-------------------------------------------------------------------------------
     #VAP (Valuation As Per) Book Value
 
@@ -46,7 +46,11 @@ def valuation_determiner(ticker):
     valuation_result=dict()
     valuation_result['TICKER']=ticker
 
-    if(data['priceToBook']<1.8):
+    if(ticker in mono_duo):
+        max_threshhold=2.1
+        percent_appreciation=((max_threshhold-pricetobook)/pricetobook)*100
+        val_bv=ltp+((ltp*percent_appreciation)/100)
+    elif(data['priceToBook']<1.8):
         percent_appreciation=((max_threshhold-pricetobook)/pricetobook)*100
         val_bv=ltp+((ltp*percent_appreciation)/100)
     elif(pricetobook>1.8):
@@ -63,7 +67,11 @@ def valuation_determiner(ticker):
     val_sales=0 #valuation as per sales
     pricetosales=data['priceToSales']
 
-    if(pricetosales<1.5):
+    if(ticker in mono_duo):
+        max_threshhold=2.0
+        percent_appreciation=((max_threshhold-pricetosales)/pricetosales)*100
+        val_sales=ltp+((ltp*percent_appreciation)/100)
+    elif(pricetosales<1.5):
         percent_appreciation=((max_threshhold-pricetosales)/pricetosales)*100
         val_sales=ltp+((ltp*percent_appreciation)/100)
     elif(pricetosales>1.5):
@@ -84,12 +92,14 @@ def valuation_determiner(ticker):
 
     #-------------------------------------------------------------------------------
     #VAP (Valuation As Per) Earnings
-
-    valuation_result['VAP_EARNINGS']=round(16*trailing_EPS,2)
+    if(ticker in mono_duo):
+        #print("here3")
+        valuation_result['VAP_EARNINGS']=round(27*trailing_EPS,2)
+    else:
+        valuation_result['VAP_EARNINGS']=round(16*trailing_EPS,2)
 
     return valuation_result
 
-
 #---------------------------------------------------------------------------------------------------------------
 #Method call
-#print(valuation_determiner("ADSL.NS"))
+#print(valuation_determiner("MCX.NS"))
