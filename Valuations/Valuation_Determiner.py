@@ -1,9 +1,9 @@
 from yahoofinancials import YahooFinancials
 import math
 
-#------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #Returns a dictionary with key financials of requested ticker
-#Demo result= {'bookValue': 442.3, 'priceToBook': 0.86, 'trailingEPS': 45.83, 'promoterHolding': 55.54, 'priceToSales': 0.41, 'close': 376.45}
+#Demo result= {'bookValue': 237.74, 'priceToBook': 2.03, 'trailingEPS': 14.84, 'promoterHolding': 0.0, 'priceToSales': 7.31, 'priceToEarnings': 32.53, 'close': 482.75}
 
 def financials_extractor(ticker):
     discard=[]
@@ -30,9 +30,10 @@ def financials_extractor(ticker):
 
     return result
 
-#---------------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------------------------------------------
 #Returns a dictionary containing valuations as per different parameters for a ticker
-#Demo result= {'TICKER': 'ADSL.NS', 'VAP_BV': 190.39, 'VAP_SALES': 183.21, 'VAP_GRAHAM': 158.94, 'VAP_EARNINGS': 174.24}
+#Demo result= {'TICKER': 'BSE.NS', 'VAP_BV': 570.74, 'VAP_SALES': 132.08, 'VAP_GRAHAM': 281.75, 'VAP_EARNINGS': 400.68, 'LTP': 482.75}
+
 
 def valuation_determiner(ticker):
     data=financials_extractor(ticker) 
@@ -101,6 +102,7 @@ def valuation_determiner(ticker):
         valuation_result['VAP_EARNINGS']=round(27*trailing_EPS,2)
     else:
         valuation_result['VAP_EARNINGS']=round(16*trailing_EPS,2)
+    valuation_result['LTP']=ltp
 
     return valuation_result
 
