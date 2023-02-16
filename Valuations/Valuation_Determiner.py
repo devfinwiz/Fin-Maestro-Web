@@ -21,6 +21,7 @@ def financials_extractor(ticker):
         result['promoterHolding']=round(d_stats[ticker]['heldPercentInsiders']*100,2)
 
         result['priceToSales']=round(d_sum[ticker]['priceToSalesTrailing12Months'],2)
+        result['priceToEarnings']=round(d_sum[ticker]['previousClose']/d_stats[ticker]['trailingEps'],2)
         result['close']=d_sum[ticker]['previousClose']
     
     except Exception as e:
