@@ -16,6 +16,6 @@ def dataset_generator(indice):
     f.write(indice_pe.to_csv())
     f.close()
 
-if __name__=='main':
+if __name__=='__main__':
      with concurrent.futures.ThreadPoolExecutor() as executor:
         executor.map(dataset_generator,NSE_INDICES)
