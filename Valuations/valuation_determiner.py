@@ -12,7 +12,6 @@ def financials_extractor(ticker):
     try:
         yf=YahooFinancials(ticker)
         d_stats=yf.get_key_statistics_data()
-        print("here")
         d_sum=yf.get_summary_data()
 
         result['bookValue']=round(d_stats[ticker]['bookValue'],2)
@@ -91,21 +90,34 @@ def valuation_determiner(ticker):
 
     trailing_EPS=data['trailingEPS']
     book_value=data['bookValue']
-    
-    val_graham=math.sqrt(22.5*trailing_EPS*book_value)
-    valuation_result['VAP_GRAHAM']=round(val_graham,2)
+
+    try:
+        val_graham=math.sqrt(22.5*trailing_EPS*book_value)
+        valuation_result['VAP_GRAHAM']=round(val_graham,2)
+    except:
+        valuation_result['VAP_GRAHAM']="NA"
 
     #-------------------------------------------------------------------------------
     #VAP (Valuation As Per) Earnings
+
     if(ticker in mono_duo or ticker in fmcg or ticker in bank):
         #print("here3")
         valuation_result['VAP_EARNINGS']=round(27*trailing_EPS,2)
+        if(valuation_result['VAP_EARNINGS']<0):
+            valuation_result['VAP_EARNINGS']=0.00
     else:
         valuation_result['VAP_EARNINGS']=round(16*trailing_EPS,2)
+        if(valuation_result['VAP_EARNINGS']<0):
+            valuation_result['VAP_EARNINGS']=0.00
+
     valuation_result['LTP']=ltp
 
     return valuation_result
 
 #---------------------------------------------------------------------------------------------------------------
 #Method call
-print(valuation_determiner("BSE.NS"))
+<<<<<<< HEAD
+# print(valuation_determiner("BSE.NS"))
+=======
+#print(valuation_determiner("ZOMATO.NS"))
+>>>>>>> 9af454f (exception handling for negative graham number)

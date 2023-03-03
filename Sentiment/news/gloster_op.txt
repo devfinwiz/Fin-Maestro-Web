@@ -1,0 +1,16 @@
+{'class_id': 2, 'class_label': 'positive', 'class_prob': 0.5091668963432312}
+{'class_id': 1, 'class_label': 'neutral', 'class_prob': 0.9498144388198853}
+{'class_id': 1, 'class_label': 'neutral', 'class_prob': 0.8497545719146729}
+{'class_id': 1, 'class_label': 'neutral', 'class_prob': 0.9686803221702576}
+{'class_id': 1, 'class_label': 'neutral', 'class_prob': 0.966535747051239}
+{'class_id': 1, 'class_label': 'neutral', 'class_prob': 0.9466550946235657}
+{'class_id': 1, 'class_label': 'neutral', 'class_prob': 0.9588901400566101}
+{'class_id': 1, 'class_label': 'neutral', 'class_prob': 0.9399284720420837}
+{'class_id': 2, 'class_label': 'positive', 'class_prob': 0.5384846329689026}
+{'class_id': 1, 'class_label': 'neutral', 'class_prob': 0.9632046222686768}
+{'class_id': 1, 'class_label': 'neutral', 'class_prob': 0.9660377502441406}
+pos 2
+neg 0
+neu 9
+neg 6
+pos 5
