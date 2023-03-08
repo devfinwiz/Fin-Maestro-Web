@@ -4,7 +4,7 @@ import pandas as pd
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------
 #returns pcr value for passed symbol
-#possible symbol values: NIFTY/BANKNIFTY/FINNIFTY/MIDCPNIFTY
+#possible symbol values: NIFTY/BANKNIFTY
 
 def pcr_scraper(symbol):
     url = 'https://www.nseindia.com/api/option-chain-indices?symbol='+ symbol
