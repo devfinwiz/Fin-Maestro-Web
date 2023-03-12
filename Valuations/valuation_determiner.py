@@ -1,10 +1,14 @@
 from yahoofinancials import YahooFinancials
 import math
+from cachetools import cached, TTLCache
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #Returns a dictionary with key financials of requested ticker
 #Demo result= {'bookValue': 237.74, 'priceToBook': 2.03, 'trailingEPS': 14.84, 'promoterHolding': 0.0, 'priceToSales': 7.31, 'priceToEarnings': 32.53, 'close': 482.75}
 
+cache = TTLCache(maxsize=100, ttl=86400)
+
+@cached(cache)
 def financials_extractor(ticker):
     discard=[]
     result=dict()
@@ -13,7 +17,7 @@ def financials_extractor(ticker):
         yf=YahooFinancials(ticker)
         d_stats=yf.get_key_statistics_data()
         d_sum=yf.get_summary_data()
-
+        
         result['bookValue']=round(d_stats[ticker]['bookValue'],2)
         result['priceToBook']=round(d_stats[ticker]['priceToBook'],2)
         result['trailingEPS']=d_stats[ticker]['trailingEps']
@@ -116,8 +120,5 @@ def valuation_determiner(ticker):
 
 #---------------------------------------------------------------------------------------------------------------
 #Method call
-<<<<<<< HEAD
-# print(valuation_determiner("BSE.NS"))
-=======
-#print(valuation_determiner("ZOMATO.NS"))
->>>>>>> 9af454f (exception handling for negative graham number)
+
+print(valuation_determiner("ADANIGREEN.NS"))

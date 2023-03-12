@@ -1,11 +1,14 @@
 import json
 import requests
-import pandas as pd
+from cachetools import cached, TTLCache
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------
 #returns pcr value for passed symbol
 #possible symbol values: NIFTY/BANKNIFTY
 
+cache = TTLCache(maxsize=5, ttl=86400)
+
+@cached(cache)
 def pcr_scraper(symbol):
     url = 'https://www.nseindia.com/api/option-chain-indices?symbol='+ symbol
     headers = {
@@ -13,9 +16,9 @@ def pcr_scraper(symbol):
         'accept-encoding' : 'gzip, deflate, br',
         'accept-language' : 'en-US,en;q=0.9'
     }
+    
     response = requests.get(url, headers=headers).content
     data = json.loads(response.decode('utf-8'))
-
     totCE = data['filtered']['CE']['totOI']
     totPE = data['filtered']['PE']['totOI']
 
@@ -25,4 +28,6 @@ def pcr_scraper(symbol):
 #-----------------------------------------------------------
 #method call
 
-print(pcr_scraper("BANKNIFTY"))
+print(pcr_scraper("NIFTY"))
+
+
