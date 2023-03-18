@@ -47,7 +47,7 @@ def indices_flag_allocator():
     exceptions=['NIFTY FMCG','NIFTY IT']
 
     for indice in NSE_INDICES:
-        df=pd.read_csv("Auto generated Dataset\\{}.csv".format(indice))
+        df=pd.read_csv("Dataset\Resultant Dataset\\nse_indices_pe_dataset\\{}.csv".format(indice))
         indices_median_pe[indice]=round(df['P/E'].median(),2)
         indices_latest_pe[indice]=df['P/E'].iloc[-1]
     
@@ -67,7 +67,7 @@ def indices_flag_allocator():
             if(indice not in exceptions):
                 indices_flag[indice]="GREEN"
 
-    print(indices_median_pe)
+    #print(indices_median_pe)
     return indices_flag
 
 #--------------------------------------------------------------------------------------------------------
