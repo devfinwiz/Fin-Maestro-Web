@@ -74,4 +74,4 @@ def pcr_stocks_anal(symbol):
 #--------------------------------------------------------------
 #method call
 
-print(pcr_stocks_anal("ADANIENT"))
+# print(pcr_stocks_anal("RELIANCE"))

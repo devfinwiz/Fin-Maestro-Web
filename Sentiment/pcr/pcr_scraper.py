@@ -17,8 +17,9 @@ def pcr_scraper(symbol):
         'accept-encoding' : 'gzip, deflate, br',
         'accept-language' : 'en-US,en;q=0.9'
     }
-    
-    response = requests.get(url, headers=headers).content
+    request = requests.get("https://www.nseindia.com", timeout=10, headers=headers)
+    cookies = dict(request.cookies)
+    response = requests.get(url, headers=headers, cookies=cookies).content
     data = json.loads(response.decode('utf-8'))
     totCE = data['filtered']['CE']['totOI']
     totPE = data['filtered']['PE']['totOI']
@@ -38,7 +39,10 @@ def pcr_stocks_scraper(symbol):
         'accept-encoding' : 'gzip, deflate, br',
         'accept-language' : 'en-US,en;q=0.9'
     }
-    response = requests.get(url, headers=headers).content
+    request = requests.get("https://www.nseindia.com", timeout=10, headers=headers)
+    cookies = dict(request.cookies)
+    response = requests.get(url, headers=headers, cookies= cookies).content
+    
     data = json.loads(response.decode('utf-8'))
     totCE = data['filtered']['CE']['totOI']
     totPE = data['filtered']['PE']['totOI']
@@ -50,7 +54,7 @@ def pcr_stocks_scraper(symbol):
 #-----------------------------------------------------------
 #method call
 
-#print(pcr_stocks_scraper("RELIANCE"))
+print(pcr_stocks_scraper("RELIANCE"))
 
 
 

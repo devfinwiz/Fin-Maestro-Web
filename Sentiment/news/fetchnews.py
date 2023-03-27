@@ -1,12 +1,16 @@
-from newsapi import NewsApiClient
 import json
+import os
+
+from newsapi import NewsApiClient
 
 apiKey = "10adc7bd681d42eda0796b7c0424dcd3"
 
-newsapi = NewsApiClient(api_key=apiKey)
+def getNews(keyword):
+    if os.path.exists(keyword+"json"):
+        return
+    newsapi = NewsApiClient(api_key=apiKey)
 
-all_articles = newsapi.get_everything(q='adani enterprise', language='en', sort_by='relevancy')
+    all_articles = newsapi.get_everything(q=keyword, language='en', sort_by='relevancy')
 
-print(all_articles)
-with open("test.json", "w") as f:
-    f.write(json.dumps(all_articles))
+    with open(keyword+".json", "w") as f:
+        f.write(json.dumps(all_articles))

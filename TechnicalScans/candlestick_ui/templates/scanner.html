@@ -61,6 +61,37 @@
                                 
                 var chart = LightweightCharts.createChart(document.getElementById("{{stock}}"), { width: 1100, height: 500 });
                 var barSeries{{stock}} = chart.addCandlestickSeries();
+                var darkTheme = {
+                    chart: {
+                        layout: {
+                            background: {
+                                type: 'solid',
+                                color: '#2B2B43',
+                            },
+                            lineColor: '#2B2B43',
+                            textColor: '#D9D9D9',
+                        },
+                        watermark: {
+                            color: 'rgba(0, 0, 0, 0)',
+                        },
+                        crosshair: {
+                            color: '#758696',
+                        },
+                        grid: {
+                            vertLines: {
+                                color: '#ffffff',
+                            },
+                            horzLines: {
+                                color: '#ffffff',
+                            },
+                        },
+                    },
+                    series: {
+                            topColor: 'rgba(32, 226, 47, 0.56)',
+                            bottomColor: 'rgba(32, 226, 47, 0.04)',
+                            lineColor: 'rgba(32, 226, 47, 1)',
+                    },
+                };
                 chart.applyOptions({
                     crosshair: {mode:0,},
                     watermark: {
@@ -87,8 +118,9 @@
                     },
 
                 })
+                chart.applyOptions(darkTheme.chart);
                 tempm = 0;
-                fetch('http://127.0.0.1:5000/getjson?symbol={{stock}}')
+                fetch('http://localhost:5000/getjson?symbol={{stock}}')
                 .then(res => res.json())
                 .then(data => {
                     const cdata = data.map(d => {
@@ -112,7 +144,7 @@
                             {
                                 time: tempm,
                                 position: 'aboveBar',
-                                color: 'red',
+                                color: 'yellow',
                                 shape: 'arrowDown',
                             },
                         ]);

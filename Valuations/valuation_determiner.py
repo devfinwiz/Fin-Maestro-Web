@@ -121,4 +121,4 @@ def valuation_determiner(ticker):
 #---------------------------------------------------------------------------------------------------------------
 #Method call
 
-print(valuation_determiner("ADANIGREEN.NS"))
+# print(valuation_determiner("ADANIGREEN.NS"))
