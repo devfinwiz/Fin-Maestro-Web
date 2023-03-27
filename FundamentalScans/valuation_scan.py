@@ -8,8 +8,11 @@ def sc_bookvalue():
     with open("FundamentalScans\\valuations_scans_result.csv",'r') as mf:
         data=csv.DictReader(mf)
         for row in data:
-            if(float(row['LTP'])<float(row['VAP_BV'])):
-                result.append(row['Ticker'])
+            try:
+                if(float(row['LTP'])<float(row['VAP_BV'])):
+                    result.append(row['Ticker'])
+            except:
+                continue
 
     return result
 
@@ -21,8 +24,11 @@ def sc_sales():
     with open("FundamentalScans\\valuations_scans_result.csv",'r') as mf:
         data=csv.DictReader(mf)
         for row in data:
-            if(float(row['LTP'])<float(row['VAP_SALES'])):
-                result.append(row['Ticker'])
+            try:
+                if(float(row['LTP'])<float(row['VAP_SALES'])):
+                    result.append(row['Ticker'])
+            except:
+                continue
 
     return result
 
@@ -34,8 +40,11 @@ def sc_graham():
     with open("FundamentalScans\\valuations_scans_result.csv",'r') as mf:
         data=csv.DictReader(mf)
         for row in data:
-            if(float(row['LTP'])<float(row['VAP_GRAHAM'])):
-                result.append(row['Ticker'])
+            try:
+                if(float(row['LTP'])<float(row['VAP_GRAHAM'])):
+                    result.append(row['Ticker'])
+            except:
+                continue
                 
     return result
 
@@ -47,7 +56,10 @@ def sc_earnings():
     with open("FundamentalScans\\valuations_scans_result.csv",'r') as mf:
         data=csv.DictReader(mf)
         for row in data:
-            if(float(row['LTP'])<float(row['VAP_EARNINGS'])):
-                result.append(row['Ticker'])
+            try:
+                if(float(row['LTP'])<float(row['VAP_EARNINGS'])):
+                    result.append(row['Ticker'])
+            except:
+                continue
 
     return result
