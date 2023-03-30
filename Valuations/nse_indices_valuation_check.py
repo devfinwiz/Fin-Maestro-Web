@@ -41,9 +41,9 @@ NSE_INDICES = ["NIFTY 50",
 #'NIFTY ALPHA 50': 'GREEN', 'NIFTY HIGH BETA 50': 'ORANGE', 'NIFTY LOW VOLATILITY 50': 'GREEN', 'NIFTY50 VALUE 20': 'ORANGE'}
 
 def indices_flag_allocator():
-    indices_flag=dict()
-    indices_median_pe=dict()
-    indices_latest_pe=dict()
+    indices_flag={}
+    indices_median_pe={}
+    indices_latest_pe={}
     exceptions=['NIFTY FMCG','NIFTY IT']
 
     for indice in NSE_INDICES:

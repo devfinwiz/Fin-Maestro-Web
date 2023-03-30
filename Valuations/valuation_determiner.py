@@ -12,7 +12,7 @@ cache = TTLCache(maxsize=100, ttl=86400)
 @cached(cache)
 def financials_extractor(ticker):
     discard=[]
-    result=dict()
+    result={}
 
     try:
         yf=YahooFinancials(ticker)
@@ -53,7 +53,7 @@ def valuation_determiner(ticker):
     val_bv=0 #Valuation as per book value
     pricetobook=data['priceToBook']
     ltp=data['close']
-    valuation_result=dict()
+    valuation_result={}
     valuation_result['TICKER']=ticker
 
     if(ticker in mono_duo or ticker in fmcg or ticker in bank):

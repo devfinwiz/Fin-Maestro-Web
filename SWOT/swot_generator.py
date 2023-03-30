@@ -9,8 +9,8 @@ from Valuations.valuation_determiner import financials_extractor,valuation_deter
 def swot_producer(ticker):
     data=financials_extractor(ticker)
     valuation=valuation_determiner(ticker)
-    swot=dict()
-    s,w,o,t=dict(),dict(),dict(),dict()
+    swot={}
+    s,w,o,t={},{},{},{}
 
     mono_duo=['BSE.NS','IEX.NS','CDSL.NS','MCX.NS']
     fmcg=['TATACONSUM.NS','ITC.NS','VBL.NS','UBL.NS','MARICO.NS','DABUR,NS','BRITANNIA.NS','COLPAL.NS','MCDOWELL-N.NS','NESTLEIND.NS','PGHH.NS','HIDUNILVR.NS','GODREJCP.NS','EMAMILTD.NS','RADICO.NS']
