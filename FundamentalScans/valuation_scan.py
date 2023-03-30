@@ -4,7 +4,7 @@ from valuation_f import *
 #returns a list of stocks that trades at a discount to its valuation as per book value
 
 def sc_bookvalue():
-    result=list()
+    result=[]
     with open("FundamentalScans\\valuations_scans_result.csv",'r') as mf:
         data=csv.DictReader(mf)
         for row in data:
@@ -20,7 +20,7 @@ def sc_bookvalue():
 #returns a list of stocks that trades at a discount to its valuation as per sales
 
 def sc_sales():
-    result=list()
+    result=[]
     with open("FundamentalScans\\valuations_scans_result.csv",'r') as mf:
         data=csv.DictReader(mf)
         for row in data:
@@ -36,7 +36,7 @@ def sc_sales():
 #returns a list of stocks that trades at a discount to its valuation as per graham number
 
 def sc_graham():
-    result=list()
+    result=[]
     with open("FundamentalScans\\valuations_scans_result.csv",'r') as mf:
         data=csv.DictReader(mf)
         for row in data:
@@ -52,7 +52,7 @@ def sc_graham():
 #returns a list of stocks that trades at a discount to its valuation as per earnings
 
 def sc_earnings():
-    result=list()
+    result=[]
     with open("FundamentalScans\\valuations_scans_result.csv",'r') as mf:
         data=csv.DictReader(mf)
         for row in data:

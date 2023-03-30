@@ -5,7 +5,7 @@ from pcr_scraper import pcr_scraper,pcr_stocks_scraper
 #Demo Output: {'NIFTY': ['Slightly overbought', 1.269], 'BANKNIFTY': ['Slightly overbought', 1.343]}
 
 def pcr_anal():
-    pcr_anal_result=dict()
+    pcr_anal_result={}
     indices=["NIFTY","BANKNIFTY"]
 
     for symbol in indices:
@@ -41,7 +41,7 @@ def pcr_anal():
 
 def pcr_stocks_anal(symbol):
     try:
-        pcr_anal_result=dict()
+        pcr_anal_result={}
         pcr_value=pcr_stocks_scraper(symbol)
     except:
         try:
