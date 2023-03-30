@@ -36,10 +36,9 @@ def store_in_tickers_csv():
                 correct_ticker = re.sub(r'[^a-zA-Z\d\s]', u'', str(hold[i]), flags=re.UNICODE)
                 hold[i]=str(correct_ticker).split(",")
 
-        with open('Prerequisites\Tickers.csv','a',newline="") as f:
+        with open(r'Prerequisites\Tickers.csv','a',newline="") as f:
             writer = csv.writer(f)
             writer.writerows(hold)
     
 
 store_in_tickers_csv()
-   

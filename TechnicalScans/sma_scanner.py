@@ -7,7 +7,7 @@ import pandas as pd
 
 def get_symbols():
     flag=1
-    comp=csv.reader(open("Prerequisites\Tickers.csv"))     
+    comp=csv.reader(open(r"Prerequisites\Tickers.csv"))     
     tickers=[]
     
     for c in comp:
@@ -29,7 +29,7 @@ def ma_above_scanner(period):
     
     for symbol in tickers:
         try:
-            df=pd.read_csv("Dataset\Resultant Dataset\\ticker_csvs\{}.csv".format(symbol))
+            df=pd.read_csv(r"Dataset\Resultant Dataset\\ticker_csvs\{}.csv".format(symbol))
             sma=talib.SMA(df['Close'],period)
             sma,close=list(sma)[-1],list(df['Close'])[-1]
             if(close>sma):
@@ -48,7 +48,7 @@ def ma_below_scanner(period):
     
     for symbol in tickers:
         try:
-            df=pd.read_csv("Dataset\Resultant Dataset\\ticker_csvs\{}.csv".format(symbol))
+            df=pd.read_csv(r"Dataset\Resultant Dataset\\ticker_csvs\{}.csv".format(symbol))
             sma=talib.SMA(df['Close'],period)
             sma,close=list(sma)[-1],list(df['Close'])[-1]
             if(close<sma):
@@ -67,7 +67,7 @@ def price_just_crossed_over_ma(period):
     
     for symbol in tickers:
         try:
-            df=pd.read_csv("Dataset\Resultant Dataset\\ticker_csvs\{}.csv".format(symbol))
+            df=pd.read_csv(r"Dataset\Resultant Dataset\\ticker_csvs\{}.csv".format(symbol))
             sma=talib.SMA(df['Close'],period)
             sma,close=list(sma)[-1],list(df['Close'])[-1]
             if(close>sma and list(df['Close'][-200])<sma):
@@ -86,7 +86,7 @@ def price_just_crossed_below_ma(period):
     
     for symbol in tickers:
         try:
-            df=pd.read_csv("Dataset\Resultant Dataset\\ticker_csvs\{}.csv".format(symbol))
+            df=pd.read_csv(r"Dataset\Resultant Dataset\\ticker_csvs\{}.csv".format(symbol))
             sma=talib.SMA(df['Close'],period)
             sma,close=list(sma)[-1],list(df['Close'])[-1]
             if(close<sma and list(df['Close'][-200])>sma):
@@ -97,7 +97,3 @@ def price_just_crossed_below_ma(period):
     return stocks_crossed_sma
 
 print(price_just_crossed_over_ma(200))
-
-
-
-            
