@@ -37,7 +37,7 @@ class BinanceTicker:
             return self.client.get_symbol_info(ticker_symbol)
         else:
             print("Pair is not found in Binance API.")
-            exit()
+            sys.exit()
 
     def historical_data_write(self):
         """
