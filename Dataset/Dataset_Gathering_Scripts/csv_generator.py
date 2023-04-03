@@ -6,7 +6,7 @@ import concurrent.futures
 
 def get_symbols():
     flag=1
-    comp=csv.reader(open("Prerequisites\Tickers.csv"))     
+    comp=csv.reader(open(r"Prerequisites\Tickers.csv"))     
     tickers=[]
     
     for c in comp:
@@ -27,7 +27,7 @@ def dataset_generator(symbol):
 
     #Creation of individual CSVs for all listed tickers in Tickers.csv
 
-    history_filename="Dataset\Resultant Dataset\\ticker_csvs\{}.csv".format(symbol)  
+    history_filename=r"Dataset\Resultant Dataset\\ticker_csvs\{}.csv".format(symbol)  
     f=open(history_filename,'w',newline="")
 
     #---------------------------------------------------------------------------------

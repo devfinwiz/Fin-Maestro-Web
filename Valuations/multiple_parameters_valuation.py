@@ -5,7 +5,7 @@ import math
 #Returns valuation of the requested ticker as per its book value
 
 def valuation_book_value(ticker):
-    with open("Dataset\Resultant Dataset\Financials.csv",'r') as f:
+    with open(r"Dataset\Resultant Dataset\Financials.csv",'r') as f:
         reader=csv.DictReader(f)
         for row in reader:
             if(row['Ticker']==ticker):
@@ -32,7 +32,7 @@ def valuation_book_value(ticker):
 #Returns valuation of the requested ticker as per its annual sales
 
 def valuation_sales(ticker):
-    with open("Dataset\Resultant Dataset\Financials.csv",'r') as f:
+    with open(r"Dataset\Resultant Dataset\Financials.csv",'r') as f:
         reader=csv.DictReader(f)
         for row in reader:
             if(row['Ticker']==ticker):
@@ -59,7 +59,7 @@ def valuation_sales(ticker):
 #Returns valuation of the requested ticker as per Graham
 
 def valuation_graham(ticker):
-    with open("Dataset\Resultant Dataset\Financials.csv",'r') as f:
+    with open(r"Dataset\Resultant Dataset\Financials.csv",'r') as f:
         reader=csv.DictReader(f)
         for row in reader:
             if(row['Ticker']==ticker):
@@ -86,7 +86,7 @@ def valuation_graham(ticker):
 #Returns valuation of the requested ticker as per its earnings
 
 def valuation_earnings(ticker):
-    with open("Dataset\Resultant Dataset\Financials.csv",'r') as f:
+    with open(r"Dataset\Resultant Dataset\Financials.csv",'r') as f:
         reader=csv.DictReader(f)
         for row in reader:
             if(row['Ticker']==ticker):

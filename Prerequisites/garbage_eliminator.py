@@ -18,12 +18,12 @@ def unique_everseen(iterable, key=None):
                 seen_add(k)
                 yield element        
 
-with open("Prerequisites\Tickers.csv", "r") as file:
+with open(r"Prerequisites\Tickers.csv", "r") as file:
     lines = []
     for line in file:
         lines.append(line.strip("\n").split(","))
 
-with open("Prerequisites\Tickers.csv", "w") as file:
+with open(r"Prerequisites\Tickers.csv", "w") as file:
     for line in unique_everseen(lines, key=frozenset):
         file.write(",".join(line)+"\n")
         

@@ -7,7 +7,7 @@ import concurrent.futures
 #Generates csv files for all NSE indices with their PE,P/B
 
 def dataset_generator(indice):  
-    history_filename="Dataset\Resultant Dataset\\nse_indices_pe_dataset\{}.csv".format(indice)  
+    history_filename=r"Dataset\Resultant Dataset\\nse_indices_pe_dataset\{}.csv".format(indice)  
     f=open(history_filename,'w',newline="")
 
     indice_pe = get_index_pe_history(symbol="{}".format(indice),
