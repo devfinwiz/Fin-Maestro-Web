@@ -60,6 +60,32 @@ in missed chances to add companies to your portfolio at the right time.
 ```
 ![image](https://user-images.githubusercontent.com/78873223/230767598-7f91215a-0988-4b70-9906-3fd3bc8de2ac.png)
 
+# 2. Mock Trader
+Without using real money for trading, market participants can place simulated trades using Mock Trader. Participants in the market might use these trades to test a certain trading strategy or analysis. 
+
+```
+Input: 
+1. Stock Name
+2. Transaction type: Buy/Sell
+
+Output:
+1. Trading position in the requested stock. 
+```
+![image](https://user-images.githubusercontent.com/78873223/230769276-36fb9748-e551-4783-87e5-8e2c6d948b54.png)
+
+# 3. Sentiment Analyzer
+The Sentiment Analyzer module analyses option chain data for indices and securities to produce a sentiment that indicates whether the index or stock is oversold, slightly oversold, slightly overbought, or overbought.
+
+```
+Input: 
+1. Stock Name
+
+Output:
+1. Sentiment for Nifty and Bank Nifty (needs no user input)
+2. Sentiment for requested stock (oversold, slightly oversold, slightly overbought, or overbought)
+```
+![image](https://user-images.githubusercontent.com/78873223/230769544-f1cb5b77-dbac-4084-b518-75312d8dccab.png)
+
 
 
 
