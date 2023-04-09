@@ -3,7 +3,7 @@
 </p>
 <p align="center">
     <em>Simplifying Finance!</em>
-</p><br>
+</p>
 
 | **Discussion** | **Bugs/Issues** | **Demo Tutorial** | **Contribute** |
 | :---: | :---: | :---: | :---: | 
@@ -56,7 +56,7 @@ Thus, if such stocks are not differentiated, the result obtained would always in
 in missed chances to add companies to your portfolio at the right time.
   
 ```
-![image](https://user-images.githubusercontent.com/78873223/230767598-7f91215a-0988-4b70-9906-3fd3bc8de2ac.png)
+![image](https://user-images.githubusercontent.com/78873223/230771730-46db6a6c-f032-40cd-9b05-17f123a0bf58.png)
 
 ## 2. Mock Trader
 Without using real money for trading, market participants can place simulated trades using Mock Trader. Participants in the market might use these trades to test a certain trading strategy or analysis. 
@@ -114,7 +114,7 @@ Inputs:
 Output:
 1. SWOT for the requested stock.
 ```
-![image](https://user-images.githubusercontent.com/78873223/230770665-c53f00d9-5526-4873-9a07-17cc98f7546b.png)
+![image](https://user-images.githubusercontent.com/78873223/230771748-d30316a3-cb08-4962-9588-5539e7ce631a.png)
 
 ## 7. Fundamental Scans
 This module examines the financial data of the stocks and sorts stocks that are attractive according to their Graham number, book value, annual sales, and earnings.
@@ -141,7 +141,7 @@ Output:
 ```
 ![image](https://user-images.githubusercontent.com/78873223/230771308-89dc07a6-5c72-4189-a426-230cf4a78c1f.png)
 
-## 9. Strategy Backtester (Currently under development)
+## 9. Strategy Backtester 
 For any requested stock, this module now backtests a hardcoded trading strategy and generates a visually appealing report with information on the number of trades, total returns, maximum drawdown, and average return.
 ```
 Inputs:
@@ -150,6 +150,7 @@ Inputs:
 Output:
 1. A plot indicating the backtest results for the requested stock.  
 ```
+![image](https://user-images.githubusercontent.com/78873223/230771780-27b46180-1984-4790-abae-83584eb9b922.png)
 
 
 
