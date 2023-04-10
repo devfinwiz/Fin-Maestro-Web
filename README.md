@@ -12,6 +12,9 @@
   <a href="">
     <img src="https://img.shields.io/badge/Python-3.8-blue&?style=for-the-badge&color=blue">
   </a>
+  <a href="">
+    <img src="https://img.shields.io/badge/Vue.js-3-blue&?style=for-the-badge&color=blue">
+  </a>
   <a href="https://github.com/devfinwiz/Fin-Maestro/blob/master/LICENSE">
     <img src="https://img.shields.io/github/license/devfinwiz/Fin-Maestro?color=darkred&style=for-the-badge">
   </a>
