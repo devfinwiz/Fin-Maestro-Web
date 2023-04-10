@@ -1,9 +1,30 @@
 <p align="center">
 <img width="458" alt="N2" src="https://user-images.githubusercontent.com/78873223/225271710-28960aeb-8bb4-475d-8c4c-af323fe4b222.PNG">
 </p>
+
+<h1 align="center">Fin-Maestro </h1>
+
+
 <p align="center">
-    <em>Simplifying Finance!</em>
-</p>
+  <a href="https://www.codefactor.io/repository/github/devfinwiz/fin-maestro">
+    <img src="https://img.shields.io/badge/CodeFactor-A-blue&?style=for-the-badge&color=blue">
+  </a>
+  <a href="">
+    <img src="https://img.shields.io/badge/Python-3.8-blue&?style=for-the-badge&color=blue">
+  </a>
+  <a href="https://github.com/devfinwiz/Fin-Maestro/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/devfinwiz/Fin-Maestro?color=darkred&style=for-the-badge">
+  </a>
+  <a href="https://github.com/devfinwiz/Fin-Maestro/commits/master">
+    <img src="https://img.shields.io/github/last-commit/devfinwiz/Fin-Maestro?color=yellow&style=for-the-badge">
+  </a>
+  <a href="https://github.com/devfinwiz/Fin-Maestro/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/devfinwiz/Fin-Maestro?color=purple&style=for-the-badge">
+  </a>
+  <a href="https://github.com/devfinwiz/Fin-Maestro/issues">
+    <img src="https://img.shields.io/github/issues-raw/devfinwiz/Fin-Maestro?color=purple&style=for-the-badge">
+  </a>
+</p><br>
 
 | **Discussion** | **Bugs/Issues** | **Demo Tutorial** | **Contribute** |
 | :---: | :---: | :---: | :---: | 
@@ -30,6 +51,8 @@ Fin-Maestro is a cutting-edge web application that aims to make it easier for ma
 <br>
 
 ![image](https://user-images.githubusercontent.com/78873223/230767705-acee9ebb-c050-4dba-9849-9c2dcd1ee217.png)
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## 1. Valuation Determiner
 The Valuation Determiner considers a variety of the stock's financial factors before calculating its fair value using the book value, yearly sales, annual earnings, and Graham number. It determines if the stock is undervalued, reasonably valued, or overvalued after the computation is complete.
@@ -58,6 +81,8 @@ in missed chances to add companies to your portfolio at the right time.
 ```
 ![image](https://user-images.githubusercontent.com/78873223/230771730-46db6a6c-f032-40cd-9b05-17f123a0bf58.png)
 
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
 ## 2. Mock Trader
 Without using real money for trading, market participants can place simulated trades using Mock Trader. Participants in the market might use these trades to test a certain trading strategy or analysis. 
 
@@ -70,6 +95,8 @@ Output:
 1. Trading position in the requested stock. 
 ```
 ![image](https://user-images.githubusercontent.com/78873223/230769276-36fb9748-e551-4783-87e5-8e2c6d948b54.png)
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## 3. Sentiment Analyzer
 The Sentiment Analyzer module analyses option chain data for indices and securities to produce a sentiment that indicates whether the index or stock is oversold, slightly oversold, slightly overbought, or overbought.
@@ -84,6 +111,8 @@ Output:
 ```
 ![image](https://user-images.githubusercontent.com/78873223/230769544-f1cb5b77-dbac-4084-b518-75312d8dccab.png)
 
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
 ## 4. Pattern Analyzer
 Finding a certain technical chart pattern across all the stocks is done by the Pattern Analyzer module, which then outputs the stock name and a chart showing the pattern's position with a yellow pointer just above it. Also, it can exclude equities whose technical charts show a breakdown, breakout, or consolidation.
 
@@ -97,6 +126,8 @@ Output:
 ```
 ![image](https://user-images.githubusercontent.com/78873223/230770081-1ee7f6bb-8290-46dd-946a-5f61abeafe9c.png)
 
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
 ## 5. Indices Health
 This module employs a color-coded system to show the overall valuation status of all NSE indices. It makes use of the hues red, orange, and green. Green means that the valuations are good enough to begin SIPs, while orange and red indicate that the valuations are neutral and expensive respectively. 
 ```
@@ -104,6 +135,8 @@ Output:
 1. List of indices that are colored-wrapped
 ```
 ![image](https://user-images.githubusercontent.com/78873223/230770415-7115d555-9812-4ad0-b912-aea2e9dfb9ea.png)
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## 6. SWOT Analyzer
 This module examines a stock's technical parameters and fundamentals before generating a SWOT that lists the stock's strengths, weaknesses, opportunities, and threats.
@@ -116,6 +149,8 @@ Output:
 ```
 ![image](https://user-images.githubusercontent.com/78873223/230771748-d30316a3-cb08-4962-9588-5539e7ce631a.png)
 
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
 ## 7. Fundamental Scans
 This module examines the financial data of the stocks and sorts stocks that are attractive according to their Graham number, book value, annual sales, and earnings.
 ```
@@ -126,6 +161,8 @@ Output:
 4. List of stocks trading below Graham Number.
 ```
 ![image](https://user-images.githubusercontent.com/78873223/230770922-eabc7bc1-12fd-4e05-a0a0-57a955693618.png)
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## 8. Crypto Technical Scans
 For traders' convenience, this module analyses the technical charts of the specified cryptocurrency and then generates a plot showing the automatically generated support and resistance levels for that cryptocurrency.
@@ -140,6 +177,8 @@ Output:
 4. List of stocks trading below Graham Number.
 ```
 ![image](https://user-images.githubusercontent.com/78873223/230771308-89dc07a6-5c72-4189-a426-230cf4a78c1f.png)
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 ## 9. Strategy Backtester 
 For any requested stock, this module now backtests a hardcoded trading strategy and generates a visually appealing report with information on the number of trades, total returns, maximum drawdown, and average return.
