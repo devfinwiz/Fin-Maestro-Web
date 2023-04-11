@@ -1,6 +1,7 @@
 import json
 from NewsSentiment import TargetSentimentClassifier
 import transformers
+import fetchnews
 tsc = TargetSentimentClassifier()
 sentiment_pipeline = transformers.pipeline("sentiment-analysis")
 
@@ -12,6 +13,7 @@ sentiment_pipeline = transformers.pipeline("sentiment-analysis")
 #
 
 def get_sentiment(keyword):
+    fetchnews.getNews(keyword)
     op = {
         "transformer": None,
         "mtsc": None
@@ -44,10 +46,7 @@ def get_sentiment(keyword):
 
     with open(f"{ent}.res","w") as f:
         f.write(json.dumps(data_cons))
-        
-    print("pos", len(data_cons["positive"]))
-    print("neg", len(data_cons["negative"]))
-    print("neu", len(data_cons["neutral"]))
+    
     op["mtsc"] = data_cons
 
     pos,neg = 0,0
@@ -57,6 +56,8 @@ def get_sentiment(keyword):
         if i["label"] == "NEGATIVE":
             neg += 1
     op["transformer"] = {"pos": pos, "neg": neg}
-    print("neg", neg)
-    print("pos", pos)
+    print(op)
     return op
+
+if __name__ == "__main__":
+    get_sentiment("Adani Enterprise")

@@ -1,4 +1,6 @@
-from Valuations.valuation_determiner import financials_extractor,valuation_determiner
+import sys
+# sys.path.insert(1, 'C:/Users/943602/Desktop/proj/sent/projo/Valuations')
+import valuation_determiner
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #Returns a dictionary with swot analysis for requested ticker
@@ -7,8 +9,10 @@ from Valuations.valuation_determiner import financials_extractor,valuation_deter
 # 'Attractive Valuations': "ADSL.NS last traded price is trading at 74.15'%' discount to its valuation as per earnings.", 'Undervalued': 'ADSL.NS is trading below the graham number by 58.86%'}, 'Threat': {}}
 
 def swot_producer(ticker):
-    data=financials_extractor(ticker)
-    valuation=valuation_determiner(ticker)
+    
+    data=valuation_determiner.financials_extractor(ticker)
+    valuation=valuation_determiner.valuation_determiner(ticker)
+    print("here1")
     swot=dict()
     s,w,o,t=dict(),dict(),dict(),dict()
 
@@ -67,11 +71,12 @@ def swot_producer(ticker):
         if(pe>40):
             t['High PE']=ticker+" has a PE of "+str(pe)
 
-    swot['Strength'],swot['Weakness'],swot['Opportunity'],swot['Threat']=s,w,o,t 
+    swot['Strength'],swot['Weakness'],swot['Opportunity'],swot['Threat']=s,w,o,t
+    print("here2")
     return swot
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #Method call
 
-#print(swot_producer("ADSL.NS"))
+# print(swot_producer("ADSL.NS"))
 

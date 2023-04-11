@@ -1,6 +1,9 @@
 from yahoofinancials import YahooFinancials
 import math
 from cachetools import cached, TTLCache
+import pickle
+import os
+import heapq
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #Returns a dictionary with key financials of requested ticker
@@ -12,6 +15,14 @@ cache = TTLCache(maxsize=100, ttl=86400)
 def financials_extractor(ticker):
     discard=[]
     result=dict()
+    cacheLi = {}
+    cachPath = "C:\\Users\\943602\\Desktop\\proj\\sent\\projo\\Valuations\\cacheEnt1.pickle"
+    if os.path.exists(cachPath):
+        with open(cachPath, "rb") as f:
+            cacheLi = pickle.load(f)
+    
+    if cacheLi.get(ticker):
+        return cacheLi.get(ticker)
 
     try:
         yf=YahooFinancials(ticker)
@@ -30,6 +41,10 @@ def financials_extractor(ticker):
     except Exception as e:
         discard.append(ticker)
         print(e)
+    
+    cacheLi[ticker] = result
+    with open(cachPath, "wb") as f:
+        pickle.dump(cacheLi, f)
 
     return result
 
@@ -39,10 +54,20 @@ def financials_extractor(ticker):
 
 
 def valuation_determiner(ticker):
+    cacheLi = []
+    cachPath = "C:\\Users\\943602\\Desktop\\proj\\sent\\projo\\Valuations\\cacheEnt.pickle"
+    if os.path.exists(cachPath):
+        with open(cachPath, "rb") as f:
+            cacheLi = pickle.load(f)
+    for i in cacheLi:
+        if i["TICKER"] == ticker:
+           return i
+    
     data=financials_extractor(ticker) 
     mono_duo=['BSE.NS','IEX.NS','CDSL.NS','MCX.NS']
     fmcg=['TATACONSUM.NS','ITC.NS','VBL.NS','UBL.NS','MARICO.NS','DABUR,NS','BRITANNIA.NS','COLPAL.NS','MCDOWELL-N.NS','NESTLEIND.NS','PGHH.NS','HIDUNILVR.NS','GODREJCP.NS','EMAMILTD.NS','RADICO.NS']
     bank=['KOTAKBANK.NS','HDFCBANK.NS','ICICIBANK','AXISBANK','SBIN.NS']
+    it=['TCS.NS','INFY.NS','TECHM.NS']
 
     #-------------------------------------------------------------------------------
     #VAP (Valuation As Per) Book Value
@@ -115,10 +140,37 @@ def valuation_determiner(ticker):
             valuation_result['VAP_EARNINGS']=0.00
 
     valuation_result['LTP']=ltp
+    
+    #---------------------------------------------------------------------------------------------------------------------------------------------
+    #Status: Overvalued/ Fairly valued/ Undervalued
 
+    valuation_average=(valuation_result['VAP_BV']+valuation_result['VAP_SALES']+valuation_result['VAP_GRAHAM']+valuation_result['VAP_EARNINGS'])/4
+    if(ticker in mono_duo or ticker in bank or ticker in fmcg or ticker in it):
+        valuation_result['TICKER']=0
+        lar1=max(list(valuation_result.values()))
+        lar2=heapq.nlargest(2, valuation_result.values())[1]
+        valuation_average=(lar1+lar2)/2
+        valuation_average=valuation_average+(18*valuation_average/100)
+        valuation_result['TICKER']=ticker
+    
+    hold=abs(valuation_result['LTP']-valuation_average)/min(valuation_result['LTP'],valuation_average)*100
+
+    if(hold<=3.1):
+        valuation_result['STATUS']="Fairly Valued"
+    elif(valuation_result['LTP']<valuation_average):
+        valuation_result['STATUS']="Undervalued"
+    else:
+        valuation_result['STATUS']="Overvalued"
+
+    valuation_result['FAIR_VALUE']=round(valuation_average,2)
+    
+    cacheLi.append(valuation_result)
+    with open(cachPath, "wb") as f:
+        pickle.dump(cacheLi, f)
+            
     return valuation_result
 
 #---------------------------------------------------------------------------------------------------------------
 #Method call
 
-# print(valuation_determiner("ADANIGREEN.NS"))
+# print(financials_extractor("RELIANCE.NS"))

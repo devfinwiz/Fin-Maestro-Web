@@ -8,6 +8,10 @@ from plotly.subplots import make_subplots
 
 import historical_data
 import indicators_sma_rsi
+import dash
+import dash_core_components as dcc
+import dash_html_components as html
+
 import support_resistance
 
 
@@ -496,8 +500,13 @@ class Supres(Values):
         add_rsi_subplot()
         legend_texts()
         chart_updates()
-        
-        return fig.show(id="the_graph", config={"displaylogo": False})
+        app = dash.Dash()
+        app.layout = html.Div([
+            dcc.Graph(figure=fig)
+        ])
+
+        app.run_server(debug=True, use_reloader=False)
+        # return fig.show(id="the_graph", config={"displaylogo": False})
 
 
 if __name__ == "__main__":

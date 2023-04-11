@@ -11,7 +11,8 @@ cursor_obj = connection_obj.cursor()
 
 # Creating table
 table = """ CREATE TABLE TRADES (
-    		ID INT PRIMARY KEY NOT NULL,
+    		PID INTEGER PRIMARY KEY AUTOINCREMENT,
+    		ID INT NOT NULL,
 			tickerName VARCHAR(255) NOT NULL,
 			type INT NOT NULL,
 			enterPrice VARCHAR(25),
@@ -19,7 +20,7 @@ table = """ CREATE TABLE TRADES (
 			isOpen VARCHAR(25)
 		); """
 
-# cursor_obj.execute(table)
+cursor_obj.execute(table)
 statement = '''SELECT * FROM TRADES'''
   
 cursor_obj.execute(statement)

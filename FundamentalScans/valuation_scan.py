@@ -5,7 +5,7 @@ from valuation_f import *
 
 def sc_bookvalue():
     result=list()
-    with open("FundamentalScans\\valuations_scans_result.csv",'r') as mf:
+    with open("../FundamentalScans\\valuations_scans_result.csv",'r') as mf:
         data=csv.DictReader(mf)
         for row in data:
             try:
@@ -21,7 +21,7 @@ def sc_bookvalue():
 
 def sc_sales():
     result=list()
-    with open("FundamentalScans\\valuations_scans_result.csv",'r') as mf:
+    with open("../FundamentalScans\\valuations_scans_result.csv",'r') as mf:
         data=csv.DictReader(mf)
         for row in data:
             try:
@@ -37,7 +37,7 @@ def sc_sales():
 
 def sc_graham():
     result=list()
-    with open("FundamentalScans\\valuations_scans_result.csv",'r') as mf:
+    with open("../FundamentalScans\\valuations_scans_result.csv",'r') as mf:
         data=csv.DictReader(mf)
         for row in data:
             try:
@@ -53,7 +53,7 @@ def sc_graham():
 
 def sc_earnings():
     result=list()
-    with open("FundamentalScans\\valuations_scans_result.csv",'r') as mf:
+    with open("../FundamentalScans\\valuations_scans_result.csv",'r') as mf:
         data=csv.DictReader(mf)
         for row in data:
             try:

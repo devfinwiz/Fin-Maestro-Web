@@ -75,3 +75,4 @@ def pcr_stocks_anal(symbol):
 #method call
 
 # print(pcr_stocks_anal("RELIANCE"))
+# print(pcr_anal())

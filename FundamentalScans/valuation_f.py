@@ -120,7 +120,7 @@ def valuation_determiner(ticker):
          
 def get_symbols():
     flag=1
-    comp=csv.reader(open("Prerequisites\Tickers.csv"))     
+    comp=csv.reader(open("../Prerequisites\Tickers.csv"))     
     tickers=[]
     
     for c in comp:

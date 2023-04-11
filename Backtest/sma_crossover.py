@@ -5,6 +5,8 @@ import pandas as pd
 from numbers import Number
 from nsepy import get_history
 from datetime import date
+import yfinance as yf
+
 
 def crossover(series1: Sequence, series2: Sequence) -> bool:
         """
@@ -30,8 +32,8 @@ def crossover(series1: Sequence, series2: Sequence) -> bool:
 class SmaCross(Strategy):
     def init(self):
         price = self.data.Close
-        sma1=int(input("First moving avergae: "))
-        sma2=int(input("Second moving average: "))
+        sma1=10#int(input("First moving avergae: "))
+        sma2=20#int(input("Second moving average: "))
         self.ma1 = self.I(SMA, price, sma1)
         self.ma2 = self.I(SMA, price, sma2)
 
@@ -42,10 +44,16 @@ class SmaCross(Strategy):
         elif crossover(self.ma2, self.ma1):
             self.sell()
     
-ticker=input("Ticker Name: ")
-ticker_df=get_history(symbol=ticker, start=date(2022,1,1), end=date(2023,1,31))
+def get_backtest(ticker, filename):
+    if not ticker:
+        ticker=input("Ticker Name: ")
+    
+    # ticker_df=get_history(symbol=ticker, start=date(2022,1,1), end=date(2023,4,9))
+    ticker = yf.Ticker(ticker+".NS")
+    data = ticker.history(period="1d",start="2022-01-01", end=None)
 
-bt = Backtest(ticker_df, SmaCross, commission=.002,
-              exclusive_orders=True)
-stats = bt.run()
-bt.plot()
+
+    bt = Backtest(data, SmaCross, commission=.002,
+                exclusive_orders=True)
+    stats = bt.run()
+    bt.plot(filename=filename, open_browser=False)
