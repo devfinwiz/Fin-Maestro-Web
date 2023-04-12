@@ -196,4 +196,16 @@ Output:
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
+## Contributing:
+* Please feel free to suggest improvements, bugs by creating an issue.
+* Please follow the [Guidelines for Contributing](https://github.com/devfinwiz/Fin-Maestro/blob/master/CONTRIBUTING.md) while making a pull request.
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+## Disclaimer:
+* DO NOT use the results provided by the web app 'solely' to make your trading/investment decisions.
+* Always backtest and analyze the stocks manually before you trade.
+* Consult your financial advisor before making any trading/investment decisions.
+* The authors/contributors and the web app will not be held liable for your losses.
+
 ## Note: The web app isn't live yet. It will be in a few weeks post finishing touch. 
