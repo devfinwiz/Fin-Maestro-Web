@@ -22,10 +22,10 @@
     <img src="https://img.shields.io/github/last-commit/devfinwiz/Fin-Maestro?color=yellow&style=for-the-badge">
   </a>
   <a href="https://github.com/devfinwiz/Fin-Maestro/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/devfinwiz/Fin-Maestro?color=purple&style=for-the-badge">
+    <img src="https://img.shields.io/github/contributors/devfinwiz/Fin-Maestro?color=indigo&style=for-the-badge">
   </a>
   <a href="https://github.com/devfinwiz/Fin-Maestro/issues">
-    <img src="https://img.shields.io/github/issues-raw/devfinwiz/Fin-Maestro?color=purpl&style=for-the-badge">
+    <img src="https://img.shields.io/github/issues-raw/devfinwiz/Fin-Maestro?color=indigo&style=for-the-badge">
   </a>
 </p><br>
 
@@ -196,4 +196,4 @@ Output:
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-Note: The web app isn't live yet. It will be in a few weeks post finishing touch. 
+## Note: The web app isn't live yet. It will be in a few weeks post finishing touch. 
