@@ -16,7 +16,7 @@
     <img src="https://img.shields.io/badge/Vue.js-3-blue&?style=for-the-badge&color=blue">
   </a>
   <a href="https://github.com/devfinwiz/Fin-Maestro/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/devfinwiz/Fin-Maestro?color=darkred&style=for-the-badge">
+    <img src="https://img.shields.io/github/license/devfinwiz/Fin-Maestro?color=maroon&style=for-the-badge">
   </a>
   <a href="https://github.com/devfinwiz/Fin-Maestro/commits/master">
     <img src="https://img.shields.io/github/last-commit/devfinwiz/Fin-Maestro?color=yellow&style=for-the-badge">
@@ -25,7 +25,7 @@
     <img src="https://img.shields.io/github/contributors/devfinwiz/Fin-Maestro?color=purple&style=for-the-badge">
   </a>
   <a href="https://github.com/devfinwiz/Fin-Maestro/issues">
-    <img src="https://img.shields.io/github/issues-raw/devfinwiz/Fin-Maestro?color=purple&style=for-the-badge">
+    <img src="https://img.shields.io/github/issues-raw/devfinwiz/Fin-Maestro?color=purpl&style=for-the-badge">
   </a>
 </p><br>
 
@@ -194,6 +194,6 @@ Output:
 ```
 ![image](https://user-images.githubusercontent.com/78873223/230771780-27b46180-1984-4790-abae-83584eb9b922.png)
 
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-
-
+Note: The web app isn't live yet. It will be in a few weeks post finishing touch. 
