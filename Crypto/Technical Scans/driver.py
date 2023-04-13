@@ -188,7 +188,7 @@ class Supres(Values):
                 Find Candlestick patterns in the dataframe.
                 """
                 t = 0
-                pattern_find = [col for col in df.columns]
+                pattern_find = list(df.columns)
                 for pattern_f in pattern_row:
                     if pattern_f == "pattern_found":
                         pattern_list.append(
