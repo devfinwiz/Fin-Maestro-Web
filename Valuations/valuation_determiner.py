@@ -14,14 +14,32 @@ cache = TTLCache(maxsize=100, ttl=86400)
 
 @cached(cache)
 def financials_extractor(ticker):
+
     discard=[]
     result={}
+    #------------------------------------------------------------------------------------
+    #if results are already available in cache, fetch from csv and return
 
+    file_path = 'SWOT\\financials_result.csv'
+    file=open(file_path,'a+') #To avoid FileNotFoundError
+
+    if os.stat(file_path).st_size != 0:
+            df=pd.read_csv(file_path)
+
+            if(ticker in df.values):
+                data=csv.DictReader(open(file_path))
+
+                for row in data:
+                    if(row['ticker']==ticker):
+                        result={'ticker':row['ticker'],'bookValue':row['bookValue'],'priceToBook':row['priceToBook'],'trailingEPS':row['trailingEPS'],
+                                'promoterHolding':row['promoterHolding'],'priceToSales':row['priceToSales'],'priceToEarnings':row['priceToEarnings'],'close':row['close']}
+                        return result
     try:
         yf=YahooFinancials(ticker)
         d_stats=yf.get_key_statistics_data()
         d_sum=yf.get_summary_data()
         
+        result['ticker']=ticker
         result['bookValue']=round(d_stats[ticker]['bookValue'],2)
         result['priceToBook']=round(d_stats[ticker]['priceToBook'],2)
         result['trailingEPS']=d_stats[ticker]['trailingEps']
@@ -34,6 +52,24 @@ def financials_extractor(ticker):
     except Exception as e:
         discard.append(ticker)
         print(e)
+
+    #---------------------------------------------------------------------------------------------------------------------------------------
+    #Stored results in csv for further caching before returning the result
+
+    val_list = [str(i) for i in result.values()]
+    
+    with open("SWOT\\financials_result.csv",'a+') as f:
+        
+        file_path = 'SWOT\\financials_result.csv'
+        if os.stat(file_path).st_size == 0:
+            
+            wr=csv.writer(f)
+            wr.writerow(("ticker","bookValue","priceToBook","trailingEPS","promoterHolding","priceToSales","priceToEarnings","close"))
+
+        line = ','.join(val_list)
+        line+="\n"
+        
+        f.write(line)
 
     return result
 
@@ -194,4 +230,4 @@ def valuation_determiner(ticker):
 
 #---------------------------------------------------------------------------------------------------------------
 #Method call
-print(valuation_determiner("COLPAL.NS"))
+#print(valuation_determiner("ADSL.NS"))
