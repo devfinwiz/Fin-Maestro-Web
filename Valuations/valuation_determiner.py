@@ -173,7 +173,7 @@ def valuation_determiner(ticker):
     valuation_result['FAIR_VALUE']=round(valuation_average,2)
 
     #----------------------------------------------------------------------------------------------------------------
-    #String fetched results in a csv for caching before returning the result
+    #Stored results in csv for further caching before returning the result
 
     val_list = [str(i) for i in valuation_result.values()]
     
