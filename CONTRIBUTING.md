@@ -3,8 +3,9 @@
 When contributing to this repository, please first discuss the change you wish to make via issue with owner or other contributors.
 
 ## 1. Keep your Fork up to date
-* Before starting development of any new feature, Always check if this repo is ahead in commits as compared to your fork.
+* Before starting development of any new feature, always check if this repo is ahead in commits as compared to your fork.
 * It is a good practice to always keep your fork up-to-date before starting development of features/fixes to avoid merge conflicts.
+* Create a new branch in order to make contributions.
 * Update your fork using following code snippet.
 ```
 # Add a new remote repo called as finmaestro_upstream
