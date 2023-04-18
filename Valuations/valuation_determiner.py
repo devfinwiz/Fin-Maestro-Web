@@ -2,6 +2,9 @@ from yahoofinancials import YahooFinancials
 import math
 from cachetools import cached, TTLCache
 import heapq
+import csv
+import os
+import pandas as pd
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #Returns a dictionary with key financials of requested ticker
@@ -40,9 +43,37 @@ def financials_extractor(ticker):
 
 
 def valuation_determiner(ticker):
+
+    #------------------------------------------------------------------------------------
+    #if results are already available in cache, fetch from csv and return
+
+    file_path = 'Valuations\\valuations_determiner_result.csv'
+    file=open(file_path,'a+') #To avoid FileNotFoundError
+
+    if os.stat(file_path).st_size != 0:
+            df=pd.read_csv(file_path)
+
+            if(ticker in df.values):
+                data=csv.DictReader(open(file_path))
+
+                for row in data:
+                    if(row['TICKER']==ticker):
+                        valuation_result={}
+                        valuation_result['TICKER']=row['TICKER']
+                        valuation_result['VAP_BV']=row['VAP_BV']
+                        valuation_result['VAP_SALES']=row['VAP_SALES']
+                        valuation_result['VAP_GRAHAM']=row['VAP_GRAHAM']
+                        valuation_result['VAP_EARNINGS']=row['VAP_EARNINGS']
+                        valuation_result['LTP']=row['LTP']
+                        valuation_result['STATUS']=row['STATUS']
+                        valuation_result['FAIR_VALUE']=row['FAIR_VALUE']
+
+                        return valuation_result
+
     data=financials_extractor(ticker) 
+    
     mono_duo=['BSE.NS','IEX.NS','CDSL.NS','MCX.NS']
-    fmcg=['TATACONSUM.NS','ITC.NS','VBL.NS','UBL.NS','MARICO.NS','DABUR,NS','BRITANNIA.NS','COLPAL.NS','MCDOWELL-N.NS','NESTLEIND.NS','PGHH.NS','HIDUNILVR.NS','GODREJCP.NS','EMAMILTD.NS','RADICO.NS']
+    fmcg=['TATACONSUM.NS','ITC.NS','VBL.NS','UBL.NS','MARICO.NS','DABUR.NS','BRITANNIA.NS','COLPAL.NS','MCDOWELL-N.NS','NESTLEIND.NS','PGHH.NS','HIDUNILVR.NS','GODREJCP.NS','EMAMILTD.NS','RADICO.NS']
     bank=['KOTAKBANK.NS','HDFCBANK.NS','ICICIBANK','AXISBANK','SBIN.NS']
     it=['TCS.NS','INFY.NS','TECHM.NS']
 
@@ -141,10 +172,26 @@ def valuation_determiner(ticker):
 
     valuation_result['FAIR_VALUE']=round(valuation_average,2)
 
+    #----------------------------------------------------------------------------------------------------------------
+    #String fetched results in a csv for caching before returning the result
+
+    val_list = [str(i) for i in valuation_result.values()]
     
+    with open("Valuations\\valuations_determiner_result.csv",'a+') as f:
+        
+        file_path = 'Valuations\\valuations_determiner_result.csv'
+        if os.stat(file_path).st_size == 0:
+            
+            wr=csv.writer(f)
+            wr.writerow(("TICKER","VAP_BV","VAP_SALES","VAP_GRAHAM","VAP_EARNINGS","LTP","STATUS","FAIR_VALUE"))
+
+        line = ','.join(val_list)
+        line+="\n"
+        
+        f.write(line)
+
     return valuation_result
 
 #---------------------------------------------------------------------------------------------------------------
 #Method call
-
-#print(valuation_determiner("TCS.NS"))
+print(valuation_determiner("COLPAL.NS"))
