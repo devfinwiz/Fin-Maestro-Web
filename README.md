@@ -42,16 +42,16 @@ Fin-Maestro is a cutting-edge web application that aims to make it easier for ma
 
 ## Fin-Maesto is comprised of 10 main modules:
 
-1. Valuation Determiner
-2. Mock Trader
-3. Sentiment Analyzer
-4. Pattern Analyzer
-5. Indices Health 
-6. SWOT Analyzer
-7. Fundamental Scans
-8. Crypto Technical Scans
-9. Strategy Backtester
-10. Buy/Sell Signals Generator
+1. [Valuation Determiner](https://github.com/devfinwiz/Fin-Maestro#1-valuation-determiner)
+2. [Mock Trader](https://github.com/devfinwiz/Fin-Maestro#2-mock-trader)
+3. [Sentiment Analyzer](https://github.com/devfinwiz/Fin-Maestro#3-sentiment-analyzer)
+4. [Pattern Analyzer](https://github.com/devfinwiz/Fin-Maestro#4-pattern-analyzer)
+5. [Indices Health](https://github.com/devfinwiz/Fin-Maestro#5-indices-health)
+6. [SWOT Analyzer](https://github.com/devfinwiz/Fin-Maestro#6-swot-analyzer)
+7. [Fundamental Scans](https://github.com/devfinwiz/Fin-Maestro#7-fundamental-scans)
+8. [Crypto Technical Scans](https://github.com/devfinwiz/Fin-Maestro#8-crypto-technical-scans)
+9. [Strategy Backtester](https://github.com/devfinwiz/Fin-Maestro#9-strategy-backtester)
+10. [Buy/Sell Signals Generator](https://github.com/devfinwiz/Fin-Maestro#10-buysell-signals-generator)
 <br>
 
 ![image](https://user-images.githubusercontent.com/78873223/230767705-acee9ebb-c050-4dba-9849-9c2dcd1ee217.png)
