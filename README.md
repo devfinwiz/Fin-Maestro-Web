@@ -51,6 +51,7 @@ Fin-Maestro is a cutting-edge web application that aims to make it easier for ma
 7. Fundamental Scans
 8. Crypto Technical Scans
 9. Strategy Backtester
+10. Buy/Sell Signals Generator
 <br>
 
 ![image](https://user-images.githubusercontent.com/78873223/230767705-acee9ebb-c050-4dba-9849-9c2dcd1ee217.png)
@@ -193,6 +194,21 @@ Output:
 1. A plot indicating the backtest results for the requested stock.  
 ```
 ![image](https://user-images.githubusercontent.com/78873223/230771780-27b46180-1984-4790-abae-83584eb9b922.png)
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+## 10. Buy/Sell Signals Generator
+For any requested stock, this module produces a visually appealing plot with long/short green and red colored markers respectively as signals. These signals can be used to interpet the further direction of the stock. 
+```
+Inputs:
+1. Stock name
+2. Number of signals (total number of buy or sell signals that must be plotted)
+
+Output:
+1. A visually appealing plot indicating buy and sell signals for the requested stock.
+```
+![image](https://user-images.githubusercontent.com/78873223/235293298-f4cdd80b-299f-4d96-9963-dbf5e692e5e9.png)
+### Note: This module is not yet integrated with the frontend. 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
