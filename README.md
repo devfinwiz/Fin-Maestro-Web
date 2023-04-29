@@ -40,7 +40,7 @@
 
 Fin-Maestro is a cutting-edge web application that aims to make it easier for market participants to operate more effectively and intelligently by thoroughly examining various parameters of various financial instruments.
 
-## Fin-Maesto is comprised of 9 main modules:
+## Fin-Maesto is comprised of 10 main modules:
 
 1. Valuation Determiner
 2. Mock Trader
