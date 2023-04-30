@@ -8,10 +8,10 @@ yf.pdr_override()
 
 plt.style.use('dark_background') #dark theme for plot
 
-ticker = 'BSE.NS'        #name of the stock for which signals are needed.
+ticker ='ONMOBILE.NS'         #name of the stock for which signals are needed.
 num_of_signals = 10      #number of buy/sell signals to be plotted
 
-initial,end = dt.date.today() - dt.timedelta(days=366),dt.date.today()
+initial,end = dt.date.today() - dt.timedelta(days=900),dt.date.today()
 
 df = yf.download(ticker,initial,end) #dataframe from yfinance for specific ticker
 
