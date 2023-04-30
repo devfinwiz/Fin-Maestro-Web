@@ -1,4 +1,7 @@
-from Valuations.valuation_determiner import financials_extractor,valuation_determiner
+import sys
+sys.path.append("Valuations")
+
+from valuation_determiner import financials_extractor,valuation_determiner
 import pandas as pd
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

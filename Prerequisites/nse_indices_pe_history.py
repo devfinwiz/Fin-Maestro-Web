@@ -1,7 +1,8 @@
+import sys
+sys.path.append("init")
+from init import *
 import datetime
 from constants import NSE_INDICES
-from nsepy import get_index_pe_history
-import concurrent.futures
 
 #---------------------------------------------------------------------------
 #Generates csv files for all NSE indices with their PE,P/B

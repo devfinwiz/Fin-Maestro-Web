@@ -1,8 +1,6 @@
-from nsepy import get_history
-import csv 
-from datetime import date
-from dateutil.relativedelta import relativedelta
-import concurrent.futures
+import sys
+sys.path.append("init")
+from init import *
 
 def get_symbols():
     flag=1

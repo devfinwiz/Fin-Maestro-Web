@@ -1,15 +1,9 @@
-import os
-import time
-from dataclasses import dataclass
-
-import pandas as pd
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
-
 import historical_data
 import indicators_sma_rsi
 import support_resistance
-
+import sys
+sys.path.append("init")
+from init import *
 
 @dataclass
 class Values:

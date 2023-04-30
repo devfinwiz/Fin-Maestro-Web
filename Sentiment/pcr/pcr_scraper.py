@@ -1,6 +1,6 @@
-import json
-import requests
-from cachetools import cached, TTLCache
+import sys
+sys.path.append("init")
+from init import *
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------
 #returns pcr value for passed symbol

@@ -1,8 +1,6 @@
-from yahoofinancials import YahooFinancials
-from cachetools import cached, TTLCache
-import math
-import csv
-import concurrent.futures
+import sys
+sys.path.append("init")
+from init import *
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #Returns a dictionary with key financials of requested ticker

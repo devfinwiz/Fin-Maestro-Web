@@ -1,6 +1,6 @@
-import csv
-import re
-import pandas as pd
+import sys
+sys.path.append("init")
+from init import *
 
 #------------------------------------------------------------------------------------------------------
 #List of raw csv files from where symbols are to be extracted.

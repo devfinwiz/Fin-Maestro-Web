@@ -1,17 +1,13 @@
-import matplotlib.pyplot as plt
-import warnings
-import yfinance as yf
-import datetime as dt
+import sys
+sys.path.append("init")
+from init import *
 
-warnings.filterwarnings("ignore")
 yf.pdr_override()
 
 plt.style.use('dark_background') #dark theme for plot
 
 ticker ='ONMOBILE.NS'         #name of the stock for which signals are needed.
 num_of_signals = 10      #number of buy/sell signals to be plotted
-
-initial,end = dt.date.today() - dt.timedelta(days=900),dt.date.today()
 
 df = yf.download(ticker,initial,end) #dataframe from yfinance for specific ticker
 
