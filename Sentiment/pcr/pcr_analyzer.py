@@ -35,6 +35,36 @@ def pcr_anal():
         
     return pcr_anal_result
 
+#------------------------------------------------------------------------------
+#For gradio integration
+def pcr_analg(symbol):
+    pcr_anal_result={}
+
+    try:
+            pcr_value=pcr_scraper(symbol)
+    except:
+            try: 
+                pcr_value=pcr_scraper(symbol)
+            except:
+                try:
+                    pcr_value=pcr_scraper(symbol)
+                except:
+                    pcr_value=pcr_scraper(symbol)
+
+    if(pcr_value>=1.4):
+            state="Overbought"
+            pcr_anal_result[symbol]=[state,pcr_value]
+    elif(pcr_value<1.4 and pcr_value>=1):
+            state="Slightly overbought"
+            pcr_anal_result[symbol]=[state,pcr_value]
+    elif(pcr_value<1 and pcr_value>=0.6):
+            state="Slightly oversold"
+            pcr_anal_result[symbol]=[state,pcr_value]
+    else:
+            state="Oversold"
+            pcr_anal_result[symbol]=[state,pcr_value]
+        
+    return pcr_anal_result[symbol][1],pcr_anal_result[symbol][0]
 #-----------------------------------------------------------------------------------------------------------------------------------------
 #Returns a dictionary indicating state of stock (overbought/slightly overbought,neutral,oversold,slightly oversold) along with present pcr_value
 #Demo Output: {'ADANIENT': ['Neutral', 0.662]}
