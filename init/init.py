@@ -30,7 +30,7 @@ import re
 import json
 import requests
 
-initial,end = dt.date.today() - dt.timedelta(days=900),dt.date.today()
+initial,end = dt.date.today() - dt.timedelta(days=374),dt.date.today()
 
 
 
