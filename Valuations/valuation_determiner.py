@@ -110,7 +110,7 @@ def valuation_determiner(ticker):
     
     mono_duo=['BSE.NS','IEX.NS','CDSL.NS','MCX.NS']
     fmcg=['TATACONSUM.NS','ITC.NS','VBL.NS','UBL.NS','MARICO.NS','DABUR.NS','BRITANNIA.NS','COLPAL.NS','MCDOWELL-N.NS','NESTLEIND.NS','PGHH.NS','HIDUNILVR.NS','GODREJCP.NS','EMAMILTD.NS','RADICO.NS']
-    bank=['KOTAKBANK.NS','HDFCBANK.NS','ICICIBANK','AXISBANK','SBIN.NS']
+    bank=['KOTAKBANK.NS','HDFCBANK.NS','ICICIBANK.NS','AXISBANK.NS','SBIN.NS']
     it=['TCS.NS','INFY.NS','TECHM.NS']
 
     #-------------------------------------------------------------------------------
