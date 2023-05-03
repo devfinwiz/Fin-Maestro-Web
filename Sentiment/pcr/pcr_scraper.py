@@ -6,10 +6,10 @@ from init import *
 #returns pcr value for passed symbol
 #possible symbol values: NIFTY/BANKNIFTY
 
-cache = TTLCache(maxsize=5, ttl=86400)
-cache2= TTLCache(maxsize=100, ttl=86400)
+#cache = TTLCache(maxsize=5, ttl=86400)
+#cache2= TTLCache(maxsize=100, ttl=86400)
 
-@cached(cache)
+#@cached(cache)
 def pcr_scraper(symbol):
     url = 'https://www.nseindia.com/api/option-chain-indices?symbol='+ symbol
     headers = {
@@ -31,7 +31,7 @@ def pcr_scraper(symbol):
 #returns pcr value for passed symbol
 #possible symbol values: NIFTY Constituents (Eg. ADANIENT, TATAMOTORS)
 
-@cached(cache2)
+#@cached(cache2)
 def pcr_stocks_scraper(symbol):
     url = 'https://www.nseindia.com/api/option-chain-equities?symbol=' + symbol
     headers = {
