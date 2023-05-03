@@ -60,10 +60,16 @@ def pcr_analg(symbol):
     if(pcr_value>=1.4):
             state="Overbought"
             pcr_anal_result[symbol]=[state,pcr_value]
-    elif(pcr_value<1.4 and pcr_value>=1):
+    elif(pcr_value<1.4 and pcr_value>=1.19):
             state="Slightly overbought"
             pcr_anal_result[symbol]=[state,pcr_value]
-    elif(pcr_value<1 and pcr_value>=0.6):
+    elif(pcr_value<1.19 and pcr_value>=1):
+            state="About to turn slightly overbought"
+            pcr_anal_result[symbol]=[state,pcr_value]
+    elif(pcr_value<1 and pcr_value>0.91):
+            state="About to turn slightly oversold"
+            pcr_anal_result[symbol]=[state,pcr_value]
+    elif(pcr_value<0.91 and pcr_value>=0.6):
             state="Slightly oversold"
             pcr_anal_result[symbol]=[state,pcr_value]
     else:
