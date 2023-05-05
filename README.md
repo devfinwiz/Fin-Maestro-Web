@@ -1,7 +1,11 @@
 <p align="center">
 <img width="458" alt="N2" src="https://user-images.githubusercontent.com/78873223/225271710-28960aeb-8bb4-475d-8c4c-af323fe4b222.PNG">
 </p>
+<div align="center">
 
+[![Share on Twitter](https://img.shields.io/badge/Twitter-share%20on%20twitter-blue?logo=twitter&style=for-the-badge)](https://twitter.com/intent/tweet?text=Find%20your%20trading%2C%20investing%20edge%20using%20the%20most%20advanced%20web%20app%20for%20technical%20and%20fundamental%20research%20combined%20with%20sentiment%20analysis.%20)
+
+</div>
 <h1 align="center">Fin-Maestro </h1>
 
 
