@@ -143,8 +143,8 @@ def valuation_determiner(ticker):
 
     max_threshhold=1.8 #Max desired priceToBook
     val_bv=0 #Valuation as per book value
-    pricetobook=data['priceToBook']
-    ltp=data['close']
+    pricetobook=float(data['priceToBook'])
+    ltp=float(data['close'])
     valuation_result={}
     valuation_result['TICKER']=ticker
 
@@ -152,7 +152,7 @@ def valuation_determiner(ticker):
         max_threshhold=2.4
         percent_appreciation=((max_threshhold-pricetobook)/pricetobook)*100
         val_bv=ltp+((ltp*percent_appreciation)/100)
-    elif(data['priceToBook']<1.8):
+    elif(pricetobook<1.8):
         percent_appreciation=((max_threshhold-pricetobook)/pricetobook)*100
         val_bv=ltp+((ltp*percent_appreciation)/100)
     elif(pricetobook>1.8):
@@ -167,7 +167,7 @@ def valuation_determiner(ticker):
 
     max_threshhold=1.5 #Max desired priceToSales
     val_sales=0 #valuation as per sales
-    pricetosales=data['priceToSales']
+    pricetosales=float(data['priceToSales'])
 
     if(ticker in mono_duo or ticker in fmcg or ticker in bank):
         max_threshhold=2.0
@@ -186,8 +186,8 @@ def valuation_determiner(ticker):
     #-------------------------------------------------------------------------------
     #VAP (Valuation As Per) Graham Number
 
-    trailing_EPS=data['trailingEPS']
-    book_value=data['bookValue']
+    trailing_EPS=float(data['trailingEPS'])
+    book_value=float(data['bookValue'])
 
     try:
         val_graham=math.sqrt(22.5*trailing_EPS*book_value)
