@@ -212,7 +212,12 @@ Output:
 1. A visually appealing plot indicating buy and sell signals for the requested stock.
 ```
 ![image](https://user-images.githubusercontent.com/78873223/235293298-f4cdd80b-299f-4d96-9963-dbf5e692e5e9.png)
-### Note: This module is not yet integrated with the frontend. 
+
+<div align="center">
+
+[![Share on Twitter](https://img.shields.io/badge/Twitter-share%20on%20twitter-blue?logo=twitter&style=for-the-badge)](https://twitter.com/intent/tweet?text=Find%20your%20trading%2C%20investing%20edge%20using%20the%20most%20advanced%20web%20app%20for%20technical%20and%20fundamental%20research%20combined%20with%20sentiment%20analysis.%20)
+
+</div>
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
