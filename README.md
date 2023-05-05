@@ -3,7 +3,7 @@
 </p>
 <div align="center">
 
-[![Share on Twitter](https://img.shields.io/badge/Twitter-share%20on%20twitter-blue?logo=twitter&style=for-the-badge)](https://twitter.com/intent/tweet?text=Find%20your%20trading%2C%20investing%20edge%20using%20the%20most%20advanced%20web%20app%20for%20technical%20and%20fundamental%20research%20combined%20with%20sentiment%20analysis.%20)
+[![Share on Twitter](https://img.shields.io/badge/Twitter-share%20on%20twitter-blue?logo=twitter&style=for-the-badge)](https://twitter.com/intent/tweet?text=About%0AFind%20your%20trading%2C%20investing%20edge%20using%20the%20most%20advanced%20web%20app%20for%20technical%20and%20fundamental%20research%20combined%20with%20sentiment%20analysis.%0A%0Ahttps%3A%2F%2Fgithub.com%2Fdevfinwiz%2FFin-Maestro%2Fblob%2Fmaster%2FREADME.md)
 
 </div>
 <h1 align="center">Fin-Maestro </h1>
@@ -215,7 +215,7 @@ Output:
 
 <div align="center">
 
-[![Share on Twitter](https://img.shields.io/badge/Twitter-share%20on%20twitter-blue?logo=twitter&style=for-the-badge)](https://twitter.com/intent/tweet?text=Find%20your%20trading%2C%20investing%20edge%20using%20the%20most%20advanced%20web%20app%20for%20technical%20and%20fundamental%20research%20combined%20with%20sentiment%20analysis.%20)
+[![Share on Twitter](https://img.shields.io/badge/Twitter-share%20on%20twitter-blue?logo=twitter&style=for-the-badge)](https://twitter.com/intent/tweet?text=About%0AFind%20your%20trading%2C%20investing%20edge%20using%20the%20most%20advanced%20web%20app%20for%20technical%20and%20fundamental%20research%20combined%20with%20sentiment%20analysis.%0A%0Ahttps%3A%2F%2Fgithub.com%2Fdevfinwiz%2FFin-Maestro%2Fblob%2Fmaster%2FREADME.md)
 
 </div>
 
