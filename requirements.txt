@@ -15,5 +15,7 @@ TA_Lib==0.4.18
 transformers==4.27.1
 yahoofinancials==1.14
 yfinance==0.1.63
+gradio==3.28.1
 tensorflow
 scikit-learn
+
