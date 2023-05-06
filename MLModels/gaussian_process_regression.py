@@ -23,34 +23,40 @@ from sklearn.gaussian_process.kernels import RBF
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 
-# Load the stock price data
-df = pd.read_csv('stock_data.csv')
+def run_gaussian_process_regression(data_file):
+    # Load the stock price data
+    df = pd.read_csv(data_file)
 
-# Prepare the features and target
-X = df.drop(['Date', 'Close'], axis=1).values
-y = df['Close'].values
+    # Prepare the features and target
+    X = df.drop(['Date', 'Close'], axis=1).values
+    y = df['Close'].values
 
-# Split the data into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    # Split the data into training and testing sets
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Define the Gaussian Process Regression model
-kernel = RBF(length_scale=1.0, length_scale_bounds=(1e-1, 10.0))
-model = GaussianProcessRegressor(kernel=kernel, alpha=0.1, n_restarts_optimizer=10)
+    # Define the Gaussian Process Regression model
+    kernel = RBF(length_scale=1.0, length_scale_bounds=(1e-1, 10.0))
+    model = GaussianProcessRegressor(kernel=kernel, alpha=0.1, n_restarts_optimizer=10)
 
-# Train the model
-model.fit(X_train, y_train)
+    # Train the model
+    model.fit(X_train, y_train)
 
-# Make predictions
-y_pred_train, y_std_train = model.predict(X_train, return_std=True)
-y_pred_test, y_std_test = model.predict(X_test, return_std=True)
+    # Make predictions
+    y_pred_train, y_std_train = model.predict(X_train, return_std=True)
+    y_pred_test, y_std_test = model.predict(X_test, return_std=True)
 
-# Evaluate the model
-mse_train = mean_squared_error(y_train, y_pred_train)
-mse_test = mean_squared_error(y_test, y_pred_test)
-r2_train = r2_score(y_train, y_pred_train)
-r2_test = r2_score(y_test, y_pred_test)
+    # Evaluate the model
+    mse_train = mean_squared_error(y_train, y_pred_train)
+    mse_test = mean_squared_error(y_test, y_pred_test)
+    r2_train = r2_score(y_train, y_pred_train)
+    r2_test = r2_score(y_test, y_pred_test)
 
-print('Train Mean Squared Error:', mse_train)
-print('Test Mean Squared Error:', mse_test)
-print('Train R-squared:', r2_train)
-print('Test R-squared:', r2_test)
+    # Print the evaluation metrics
+    print('Train Mean Squared Error:', mse_train)
+    print('Test Mean Squared Error:', mse_test)
+    print('Train R-squared:', r2_train)
+    print('Test R-squared:', r2_test)
+
+# Usage
+#data_file = 'stock_data.csv'
+#run_gaussian_process_regression(data_file)
