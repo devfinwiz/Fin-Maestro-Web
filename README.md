@@ -44,7 +44,7 @@
 
 Fin-Maestro is a cutting-edge web application that aims to make it easier for market participants to operate more effectively and intelligently by thoroughly examining various parameters of various financial instruments.
 
-## Fin-Maesto is comprised of 10 main modules:
+## Fin-Maestro is comprised of 10 main modules:
 
 1. [Valuation Determiner](https://github.com/devfinwiz/Fin-Maestro#1-valuation-determiner)
 2. [Mock Trader](https://github.com/devfinwiz/Fin-Maestro#2-mock-trader)
