@@ -234,3 +234,11 @@ Output:
 * The authors/contributors and the web app will not be held liable for your losses.
 
 ## Note: The web app isn't live yet. It will be in a few weeks post finishing touch. 
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+## 👥 Contributors
+| Name | GitHub Profile | Description | Followers | Stars |
+|:----:|:--------------|:------------|:---------:|:-----:|
+| Dev Juneja | [devfinwiz](https://github.com/devfinwiz) | Backend Developer | ![GitHub followers](https://img.shields.io/github/followers/devfinwiz?style=social) | ![GitHub stars](https://img.shields.io/github/stars/devfinwiz?style=social) |
+| Yash Khadse | [yash-dk](https://github.com/yash-dk) | Front-end Developer | ![GitHub followers](https://img.shields.io/github/followers/yash-dk?style=social) | ![GitHub stars](https://img.shields.io/github/stars/yash-dk?style=social) |
