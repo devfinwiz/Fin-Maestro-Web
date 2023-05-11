@@ -224,6 +224,7 @@ Output:
 ## Contributing:
 * Please feel free to suggest improvements, bugs by creating an issue.
 * Please follow the [Guidelines for Contributing](https://github.com/devfinwiz/Fin-Maestro/blob/master/CONTRIBUTING.md) while making a pull request.
+* Please check the [Upcoming Features](https://github.com/devfinwiz/Fin-Maestro/blob/master/UPCOMING-FEATURES.md) for a list of exciting features we plan to implement in the future.
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
@@ -232,8 +233,6 @@ Output:
 * Always backtest and analyze the stocks manually before you trade.
 * Consult your financial advisor before making any trading/investment decisions.
 * The authors/contributors and the web app will not be held liable for your losses.
-
-## Note: The web app isn't live yet. It will be in a few weeks post finishing touch. 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
