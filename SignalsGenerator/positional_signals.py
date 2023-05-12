@@ -3,6 +3,7 @@ sys.path.append("init")
 from init import *
 
 def signals_generator(ticker,num_of_signals):
+    matplotlib.use('Agg')
     yf.pdr_override()
     plt.style.use('dark_background') #dark theme for plot
 
