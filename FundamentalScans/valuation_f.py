@@ -6,9 +6,6 @@ from init import *
 #Returns a dictionary with key financials of requested ticker
 #Demo result= {'bookValue': 237.74, 'priceToBook': 2.03, 'trailingEPS': 14.84, 'priceToSales': 7.31, 'priceToEarnings': 32.53, 'close': 482.75}
 
-cache = TTLCache(maxsize=100, ttl=86400)
-
-@cached(cache)
 def financials_extractor(ticker):
     discard=[]
     result={}
