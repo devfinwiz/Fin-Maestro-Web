@@ -1,5 +1,6 @@
 import yfinance as yf
 import matplotlib.pyplot as plt
+import matplotlib
 import warnings
 import datetime as dt
 warnings.filterwarnings("ignore")
