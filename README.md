@@ -239,5 +239,5 @@ Output:
 ## 👥 Contributors
 | Name | GitHub Profile | Description | Followers | Stars |
 |:----:|:--------------|:------------|:---------:|:-----:|
-| Dev Juneja | [devfinwiz](https://github.com/devfinwiz) | Backend Developer | ![GitHub followers](https://img.shields.io/github/followers/devfinwiz?style=social) | ![GitHub stars](https://img.shields.io/github/stars/devfinwiz?style=social) |
+| Dev Juneja | [devfinwiz](https://github.com/devfinwiz) | Idea Owner, Backend Developer | ![GitHub followers](https://img.shields.io/github/followers/devfinwiz?style=social) | ![GitHub stars](https://img.shields.io/github/stars/devfinwiz?style=social) |
 | Yash Khadse | [yash-dk](https://github.com/yash-dk) | Front-end Developer | ![GitHub followers](https://img.shields.io/github/followers/yash-dk?style=social) | ![GitHub stars](https://img.shields.io/github/stars/yash-dk?style=social) |
