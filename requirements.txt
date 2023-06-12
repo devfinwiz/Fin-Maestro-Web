@@ -15,8 +15,6 @@ TA_Lib
 transformers==4.27.1
 yahoofinancials==1.14
 yfinance
-gradio
-requests==2.31.0
 gradio==3.34.0
 tensorflow
 scikit-learn
