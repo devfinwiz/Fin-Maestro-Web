@@ -26,10 +26,11 @@ api = Api(app)
 api.decorators = [cors.crossdomain(origin='*', headers=['Content-Type', 'x-api-key', 'Authorization', 'Auth-Route', 'auto-key'])]
 
 #TODO: reading .env file and incorporating library for managing variables
+#TODO: incorporate posgres engine for relational and non-local databases
 class Tickers(Resource):
     def get(self):
         
-        directory = os.path.join(os.getcwd(),'Prerequisites\Tickers.csv')
+        directory = os.path.join(os.getcwd(),'Prerequisites/Tickers.csv')
         
         with open(directory) as f:
             cont = f.read().split()

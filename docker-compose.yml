@@ -1,22 +1,22 @@
 version: "3.7"
 services:
 
-  #front:
-  #  build:
-  #    context: ./frontend
-  #    args:
-  #      - REACT_APP_BACKEND_ADDRESS=http://localhost:5000
-  #  depends_on:
-  #    - back
-  #  ports:
-  #    - 8080:80
+ front:
+   build:
+     context: ./frontend
+     args:
+       - VITE_APP_BACKEND_ADDRESS=http://localhost:5000
+   #depends_on:
+   #  - back
+   ports:
+     - 8080:80
 
+ back:
+   build:
+     context: ./backend
 
-  back:
-    build:
-      context: ./backend
-
-    ports:
-      - 5000:5000
+   ports:
+     - 5000:5000
     #volumes:
     #  - .:/code
+#TODO: add path from CSV files or replace with source DB tables
