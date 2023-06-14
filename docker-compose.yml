@@ -6,8 +6,8 @@ services:
      context: ./frontend
      args:
        - VITE_APP_BACKEND_ADDRESS=http://localhost:5000
-   #depends_on:
-   #  - back
+   depends_on:
+     - back
    ports:
      - 8080:80
 
