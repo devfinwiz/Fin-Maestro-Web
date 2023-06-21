@@ -44,6 +44,27 @@
 
 Fin-Maestro is a cutting-edge web application that aims to make it easier for market participants to operate more effectively and intelligently by thoroughly examining various parameters of various financial instruments.
 
+## How install Fin-Maestro?
+
+1. Manual: To be able to raise the project you must have the following prerequisites:
+   
+    [x] Vite.js (https://vitejs.dev/guide/)
+    
+    [x] python 3.10.11 (https://www.python.org/downloads/release/python-31011/)
+
+    In the case of the backend, go to the path ~/backend/scr/ and execute the following command: ```pip install -r requirements.txt```
+
+    Additionally you should consider installing the libraries TA_Lib, tensorflow, stable-baselines3 and tensorflow-intel
+
+    In the case of the frontend, go to the path ~/frontend/ and execute the following command: ```npm install``` and then execute: ```npm run dev```
+
+1. Docker: To be able to raise the project you must have the following prerequisites:
+   
+    [x] Docker/Docker-compose (https://docs.docker.com/desktop/)
+
+    Go to the main path and run the following command: ```docker-compose up -d --build```
+
+
 ## Fin-Maestro is comprised of 10 main modules:
 
 1. [Valuation Determiner](https://github.com/devfinwiz/Fin-Maestro#1-valuation-determiner)
