@@ -50,7 +50,7 @@ Fin-Maestro is a cutting-edge web application that aims to make it easier for ma
    
     [x] Vite.js (https://vitejs.dev/guide/)
     
-    [x] python 3.8 (https://www.python.org/downloads/release/python-380/)
+    [x] python 3.10.11 (https://www.python.org/downloads/release/python-31011/)
 
     In the case of the backend, go to the path ~/backend/scr/ and execute the following command: ```pip install -r requirements.txt```
 
