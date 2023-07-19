@@ -229,6 +229,7 @@ For any requested stock, this module produces a visually appealing plot with lon
 Inputs:
 1. Stock name
 2. Number of signals (total number of buy or sell signals that must be plotted)
+Note: For best results, keep this value as 10.
 
 Output:
 1. A visually appealing plot indicating buy and sell signals for the requested stock.
