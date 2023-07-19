@@ -255,7 +255,7 @@ Output:
 * DO NOT use the results provided by the web app 'solely' to make your trading/investment decisions.
 * Always backtest and analyze the stocks manually before you trade.
 * Consult your financial advisor before making any trading/investment decisions.
-* The authors/contributors and the web app will not be held liable for your losses.
+* The authors/contributors and the web app will not be held liable for your losses (if any).
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
