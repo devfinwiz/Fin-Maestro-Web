@@ -1,5 +1,9 @@
 import gradio as gr
 import sys
+# The fllowing sys.path.append() calls are for internam modules in the respective directories under the project root 
+# - For Windows developers, if any issues, simply set the absolute path.
+#   e.g. sys.path.append("C:\\Users\\<uservname>\\PycharmProjects\\Fin-Maestro\Valuations")
+# - For Linux developers, no issues should be encountered yet
 sys.path.append("Valuations")
 sys.path.append("SWOT")
 sys.path.append("SignalsGenerator")
