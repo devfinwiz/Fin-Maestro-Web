@@ -48,7 +48,7 @@ Fin-Maestro is a cutting-edge web application that aims to make it easier for ma
 
 ### (Refer to branch 'docker'.)
 
-1. Manual: To be able to raise the project with 'docker' you must have the following prerequisites:
+1. Manual: To be able to raise the project you must have the following prerequisites:
    
     [x] Vite.js (https://vitejs.dev/guide/)
     
