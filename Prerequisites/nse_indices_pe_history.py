@@ -11,9 +11,12 @@ def dataset_generator(indice):
     history_filename=r"Dataset\Resultant Dataset\\nse_indices_pe_dataset\{}.csv".format(indice)  
     f=open(history_filename,'w',newline="")
 
-    indice_pe = get_index_pe_history(symbol="{}".format(indice),
-                                    start=datetime.datetime(2022,1,1),
-                                    end=datetime.datetime(2023,2,17))
+    symbol="{}".format(indice)
+    start_date = "01-Jan-2021"
+    end_date = "02-Oct-2023"
+
+    indice_pe = index_pe_pb_div(symbol,start_date,end_date)
+    #print(indice_pe)
     f.write(indice_pe.to_csv())
     f.close()
 

@@ -16,7 +16,8 @@ from binance import Client
 from datetime import datetime, timedelta
 from binance.client import Client
 
-from nsepy import get_history,get_index_pe_history
+#from nsepy import get_history,get_index_pe_history (nsepy is deprecated)
+from nsepython import index_pe_pb_div
 import csv 
 from datetime import date
 from dateutil.relativedelta import relativedelta
