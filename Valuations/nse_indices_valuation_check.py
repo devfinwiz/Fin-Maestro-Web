@@ -47,11 +47,15 @@ def indices_flag_allocator():
     exceptions=['NIFTY FMCG','NIFTY IT']
 
     for indice in NSE_INDICES:
-        df=pd.read_csv(r"Dataset\Resultant Dataset\\nse_indices_pe_dataset\\{}.csv".format(indice))
-        indices_median_pe[indice]=round(df['P/E'].median(),2)
-        indices_latest_pe[indice]=df['P/E'].iloc[-1]
-    
+        try:
+            df=pd.read_csv(r"Dataset\Resultant Dataset\\nse_indices_pe_dataset\\{}.csv".format(indice))
+            indices_median_pe[indice]=float(round(df['pe'].median(),2))
+            indices_latest_pe[indice]=float(df['pe'].iloc[-1])
+        except:
+            continue
+        
     for indice,value in indices_median_pe.items():
+        print(indice)
         if(indice in exceptions and (value + (75*value)/100)<indices_latest_pe[indice]):
             indices_flag[indice]="RED"
         elif(indice in exceptions and (value + (20*value)/100)<indices_latest_pe[indice]):
