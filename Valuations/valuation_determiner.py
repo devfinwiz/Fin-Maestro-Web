@@ -3,34 +3,42 @@ import math
 import heapq
 import csv
 import os
+import sys
 import pandas as pd
+from questdb.ingress import Sender, IngressError
+import psycopg as pg
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #Returns a dictionary with key financials of requested ticker
 #Demo result= {'bookValue': 237.74, 'priceToBook': 2.03, 'trailingEPS': 14.84, 'promoterHolding': 0.0, 'priceToSales': 7.31, 'priceToEarnings': 32.53, 'close': 482.75}
 
 
-def financials_extractor(ticker):
+def financials_extractor(ticker):       #with QuestDb cache support
 
     discard=[]
     result={}
-    #------------------------------------------------------------------------------------
-    #if results are already available in cache, fetch from csv and return
+    
+    conn_str = 'user=admin password=quest host=127.0.0.1 port=8812 dbname=qdb'
+    with pg.connect(conn_str, autocommit=True) as connection:
+        with connection.cursor() as cur:
 
-    file_path = 'SWOT\\financials_result.csv'
-    file=open(file_path,'a+') #To avoid FileNotFoundError
+            #Query the database and obtain data as Python objects.
 
-    if os.stat(file_path).st_size != 0:
-            df=pd.read_csv(file_path)
+            cur.execute('SELECT * FROM stock_financials;')
+            records = cur.fetchall()
 
-            if(ticker in df.values):
-                data=csv.DictReader(open(file_path))
-
-                for row in data:
-                    if(row['ticker']==ticker):
-                        result={'ticker':row['ticker'],'bookValue':row['bookValue'],'priceToBook':row['priceToBook'],'trailingEPS':row['trailingEPS'],
-                                'promoterHolding':row['promoterHolding'],'priceToSales':row['priceToSales'],'priceToEarnings':row['priceToEarnings'],'close':row['close']}
-                        return result
+            for row in records:
+                if row[0]==ticker:
+                    result['ticker']=row[0]
+                    result['bookValue']=row[1]
+                    result['priceToBook']=row[2]
+                    result['trailingEPS']=row[3]
+                    result['promoterHolding']=row[4]
+                    result['priceToSales']=row[5]
+                    result['priceToEarnings']=row[6]
+                    result['close']=row[7]
+                    return result
+                
     try:
         yf=YahooFinancials(ticker)
         d_stats=yf.get_key_statistics_data()
@@ -45,28 +53,25 @@ def financials_extractor(ticker):
         result['priceToSales']=round(d_sum[ticker]['priceToSalesTrailing12Months'],2)
         result['priceToEarnings']=round(d_sum[ticker]['previousClose']/d_stats[ticker]['trailingEps'],2)
         result['close']=d_sum[ticker]['previousClose']
+
+        df2=pd.DataFrame([result])
+    
+        try:
+            host: str = 'localhost' 
+            port: int = 9009
+            with Sender(host, port) as sender:
+                sender.dataframe(
+                    df2,
+                    table_name='stock_financials',  # Table name to insert into.
+                    symbols=['ticker'],  # Columns to be inserted as SYMBOL types.
+                    )  # Column containing the designated timestamps.
+
+        except IngressError as e:
+            sys.stderr.write(f'Got error: {e}\n')
     
     except Exception as e:
         discard.append(ticker)
         print(e)
-
-    #---------------------------------------------------------------------------------------------------------------------------------------
-    #Stored results in csv for further caching before returning the result
-
-    val_list = [str(i) for i in result.values()]
-    
-    with open("SWOT\\financials_result.csv",'a+') as f:
-        
-        file_path = 'SWOT\\financials_result.csv'
-        if os.stat(file_path).st_size == 0:
-            
-            wr=csv.writer(f)
-            wr.writerow(("ticker","bookValue","priceToBook","trailingEPS","promoterHolding","priceToSales","priceToEarnings","close"))
-
-        line = ','.join(val_list)
-        line+="\n"
-        
-        f.write(line)
 
     return result
 
@@ -104,32 +109,6 @@ def financials_extractor_gradio(ticker):
 #Demo result= {'TICKER': 'BSE.NS', 'VAP_BV': 570.74, 'VAP_SALES': 132.08, 'VAP_GRAHAM': 281.75, 'VAP_EARNINGS': 400.68, 'LTP': 482.75}
 
 def valuation_determiner(ticker):
-
-    #------------------------------------------------------------------------------------
-    #if results are already available in cache, fetch from csv and return
-
-    file_path = 'Valuations\\valuations_determiner_result.csv'
-    file=open(file_path,'a+') #To avoid FileNotFoundError
-
-    if os.stat(file_path).st_size != 0:
-            df=pd.read_csv(file_path)
-
-            if(ticker in df.values):
-                data=csv.DictReader(open(file_path))
-
-                for row in data:
-                    if(row['TICKER']==ticker):
-                        valuation_result={}
-                        valuation_result['TICKER']=row['TICKER']
-                        valuation_result['VAP_BV']=row['VAP_BV']
-                        valuation_result['VAP_SALES']=row['VAP_SALES']
-                        valuation_result['VAP_GRAHAM']=row['VAP_GRAHAM']
-                        valuation_result['VAP_EARNINGS']=row['VAP_EARNINGS']
-                        valuation_result['LTP']=row['LTP']
-                        valuation_result['STATUS']=row['STATUS']
-                        valuation_result['FAIR_VALUE']=row['FAIR_VALUE']
-
-                        return valuation_result
 
     data=financials_extractor(ticker) 
     
@@ -233,24 +212,6 @@ def valuation_determiner(ticker):
 
     valuation_result['FAIR_VALUE']=round(valuation_average,2)
 
-    #----------------------------------------------------------------------------------------------------------------
-    #Stored results in csv for further caching before returning the result
-
-    val_list = [str(i) for i in valuation_result.values()]
-    
-    with open("Valuations\\valuations_determiner_result.csv",'a+') as f:
-        
-        file_path = 'Valuations\\valuations_determiner_result.csv'
-        if os.stat(file_path).st_size == 0:
-            
-            wr=csv.writer(f)
-            wr.writerow(("TICKER","VAP_BV","VAP_SALES","VAP_GRAHAM","VAP_EARNINGS","LTP","STATUS","FAIR_VALUE"))
-
-        line = ','.join(val_list)
-        line+="\n"
-        
-        f.write(line)
-
     return valuation_result
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -258,7 +219,7 @@ def valuation_determiner(ticker):
 
 def valuation_determiner_gradio(ticker):
 
-    data=financials_extractor_gradio(ticker) 
+    data=financials_extractor(ticker) 
     
     mono_duo=['BSE.NS','IEX.NS','CDSL.NS','MCX.NS']
     fmcg=['TATACONSUM.NS','ITC.NS','VBL.NS','UBL.NS','MARICO.NS','DABUR.NS','BRITANNIA.NS','COLPAL.NS','MCDOWELL-N.NS','NESTLEIND.NS','PGHH.NS','HIDUNILVR.NS','GODREJCP.NS','EMAMILTD.NS','RADICO.NS']
@@ -364,5 +325,5 @@ def valuation_determiner_gradio(ticker):
 
 #---------------------------------------------------------------------------------------------------------------
 #Method call
-#print(valuation_determiner("ADSL.NS"))
+#print(valuation_determiner("SPLIL.NS"))
 
