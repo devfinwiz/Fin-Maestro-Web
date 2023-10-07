@@ -201,10 +201,7 @@ Inputs:
 1. Cryptocurrency name
 
 Output:
-1. List of stocks attractive as per its book value. 
-2. List of stocks attractive as per its sales. 
-3. List of stocks attractive as per its earnings.
-4. List of stocks trading below Graham Number.
+1. Technical chart with auto generated plotting of support and resistance levels.
 ```
 ![image](https://user-images.githubusercontent.com/78873223/230771308-89dc07a6-5c72-4189-a426-230cf4a78c1f.png)
 
