@@ -40,6 +40,20 @@
 
 ![](https://i.imgur.com/waxVImv.png)
 
+# Change Log
+
+1. Introduced smart (not dumb) caching with the introduction of fastest time series database - [QuestDB](https://questdb.io/docs/) to Fin-Maestro.
+2. Smart caching is presently available for [Valuation Determiner](https://github.com/devfinwiz/Fin-Maestro#1-valuation-determiner), [Fundamental Scans](https://github.com/devfinwiz/Fin-Maestro#7-fundamental-scans) as they were the ones exposed to excess load while arriving at meaningful results.
+3. With integration of QuestDB into Fin-Maestro, making queries to filter out results you need is now possible in fraction of second. 
+4. Fin-Maestro is now 64% faster than before with smart caching.
+5. QuestDB Console Snaps:
+
+   <img width="958" alt="Quest1" src="https://github.com/devfinwiz/Fin-Maestro-Web/assets/78873223/ab59b378-5ac9-4957-afc0-654fed0abab7">
+   <img width="956" alt="quest2" src="https://github.com/devfinwiz/Fin-Maestro-Web/assets/78873223/41043b2d-ab25-4721-b3dd-061fde7405f5">
+
+![](https://i.imgur.com/waxVImv.png)
+
+
 # Fin-Maestro
 
 Fin-Maestro is a cutting-edge web application that aims to make it easier for market participants to operate more effectively and intelligently by thoroughly examining various parameters of various financial instruments.
@@ -65,6 +79,13 @@ Fin-Maestro is a cutting-edge web application that aims to make it easier for ma
     [x] Docker/Docker-compose (https://docs.docker.com/desktop/)
 
     Go to the main path and run the following command: ```docker-compose up -d --build```
+
+### Common step to enable QuestDB Integration to Fin-Maestro for smart caching: 
+  
+  Run QuestDB Image: <br>
+  docker run -p 9000:9000 -p 9009:9009 -p 8812:8812 -p 9003:9003 questdb/questdb:7.3.3
+
+![](https://i.imgur.com/waxVImv.png)
 
 ## Fin-Maestro is comprised of 10 main modules:
 
