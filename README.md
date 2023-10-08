@@ -45,7 +45,7 @@
 1. Introduced smart (not dumb) caching with the introduction of fastest time series database - [QuestDB](https://questdb.io/docs/) to Fin-Maestro.
 2. Smart caching is presently available for [Valuation Determiner](https://github.com/devfinwiz/Fin-Maestro#1-valuation-determiner), [Fundamental Scans](https://github.com/devfinwiz/Fin-Maestro#7-fundamental-scans) as they were the ones exposed to excess load while arriving at meaningful results.
 3. With integration of QuestDB into Fin-Maestro, making queries to filter out results you need is now possible in fraction of second. 
-4. Fin-Maestro is now 64% faster than before with smart caching.
+4. Fin-Maestro is now 46% faster than before with smart caching.
 5. QuestDB Console Snaps:
 
    <img width="958" alt="Quest1" src="https://github.com/devfinwiz/Fin-Maestro-Web/assets/78873223/ab59b378-5ac9-4957-afc0-654fed0abab7">
