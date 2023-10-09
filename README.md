@@ -83,7 +83,9 @@ Fin-Maestro is a cutting-edge web application that aims to make it easier for ma
 ### Common step to enable QuestDB Integration to Fin-Maestro for smart caching: 
   
   Run QuestDB Image: <br>
+  ```
   docker run -p 9000:9000 -p 9009:9009 -p 8812:8812 -p 9003:9003 questdb/questdb:7.3.3
+  ```
 
 ![](https://i.imgur.com/waxVImv.png)
 
