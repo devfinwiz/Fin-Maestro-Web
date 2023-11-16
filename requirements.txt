@@ -1,4 +1,4 @@
-aiohttp==3.8.5
+aiohttp==3.8.6
 binance==0.3
 python_binance==1.0.17
 cachetools==5.0.0
