@@ -11,7 +11,7 @@ pandas_ta==0.3.14b
 plotly==5.3.1
 python_dateutil==2.8.2
 TA_Lib
-transformers==4.30.0
+transformers==4.36.0
 yahoofinancials==1.14
 yfinance
 gradio
