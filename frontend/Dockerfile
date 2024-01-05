@@ -3,6 +3,7 @@ FROM node:lts-alpine as build-stage
 WORKDIR /app
 COPY package*.json ./
 RUN npm install -g vite
+RUN npm install @iconify/tools --save
 COPY . .
 RUN npm run build
 
