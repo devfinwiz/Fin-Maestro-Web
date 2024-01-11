@@ -3,16 +3,14 @@ from yahoofinancials import YahooFinancials
 import sqlite3
 from aiohttp import web
 
-sys.path.insert(1, 'C:/Users/943602/Desktop/proj/sent/projo/Valuations')
-sys.path.insert(1, 'C:/Users/943602/Desktop/proj/sent/projo')
-sys.path.insert(1, 'C:/Users/943602/Desktop/proj/sent/projo/Sentiment')
-sys.path.insert(1, 'C:/Users/943602/Desktop/proj/sent/projo/Sentiment/pcr')
-sys.path.insert(1, 'C:/Users/943602/Desktop/proj/sent/projo/SWOT')
+sys.path.insert(1, 'C:\Users\Dev.Juneja\Downloads\Fin-Maestro-Web\Valuations')
+sys.path.insert(1, 'C:\Users\Dev.Juneja\Downloads\Fin-Maestro-Web\Sentiment')
+sys.path.insert(1, 'C:\Users\Dev.Juneja\Downloads\Fin-Maestro-Web\Sentiment\pcr')
+sys.path.insert(1, 'C:\Users\Dev.Juneja\Downloads\Fin-Maestro-Web\SWOT')
 import json
 import pcr_analyzer
 import valuation_determiner
 import swot_generator
-# from news import fetchnews, analy
 
 routes = web.RouteTableDef()
 
@@ -70,7 +68,11 @@ async def registerTrade(request):
     print(data)
     conn = sqlite3.connect('system.db')
     cursor = conn.cursor()
-    cursor.execute(f"INSERT INTO TRADES VALUES ({data['id']}, '{data['tickerName']}', {data['type']}, '{data['enterPrice']}', '{data['exitPrice']}', {data['isOpen']})")
+
+    # Use parameterized query to avoid SQL injection
+    cursor.execute("INSERT INTO TRADES VALUES (?, ?, ?, ?, ?, ?)",
+                   (data['id'], data['tickerName'], data['type'], data['enterPrice'], data['exitPrice'], data['isOpen']))
+
     conn.commit()
     conn.close()
     return web.Response(text=json.dumps({"success": "inserted"}))
@@ -79,23 +81,33 @@ async def registerTrade(request):
 async def valu(request):
     conn = sqlite3.connect('system.db')
     cursor = conn.cursor()
-    cursor.execute(f"UPDATE TRADES SET exitPrice={request.match_info['exitPrice']}, isOpen='0' WHERE id={request.match_info['tradeID']}")
+
+    # Use parameterized query to avoid SQL injection
+    exit_price = request.match_info['exitPrice']
+    trade_id = request.match_info['tradeID']
+
+    cursor.execute("UPDATE TRADES SET exitPrice=?, isOpen='0' WHERE id=?", (exit_price, trade_id))
+    
     conn.commit()
     conn.close()
     return web.Response(text=json.dumps({"success": "inserted"}))
 
 @routes.get("/api/trades/{ticker}")
-async def valu(request):
-    conn = sqlite3.connect('system.db')
-    cursor = conn.cursor()
-    cursor.execute(f"SELECT * FROM TRADES WHERE tickerName='{request.match_info['ticker']}'")
-    output = cursor.fetchall()
-    di = {"trades": []}
-    for row in output:
-        di["trades"].append(list(row))
+async def valu(request): 
+    conn = sqlite3.connect('system.db') 
+    cursor = conn.cursor() 
 
-    conn.commit()
-    conn.close()
+    # Use parameterized query to avoid SQL injection
+    ticker_name = request.match_info['ticker']
+    cursor.execute("SELECT * FROM TRADES WHERE tickerName=?", (ticker_name,))
+    
+    output = cursor.fetchall() 
+    di = {"trades": []} 
+    for row in output: 
+        di["trades"].append(list(row)) 
+
+    conn.commit() 
+    conn.close() 
     return web.Response(text=json.dumps(di))
     
     
