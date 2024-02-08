@@ -42,14 +42,26 @@
 
 # Change Log
 
-1. Introduced smart (not dumb) caching with the introduction of fastest time series database - [QuestDB](https://questdb.io/docs/) to Fin-Maestro.
-2. Smart caching is presently available for [Valuation Determiner](https://github.com/devfinwiz/Fin-Maestro#1-valuation-determiner), [Fundamental Scans](https://github.com/devfinwiz/Fin-Maestro#7-fundamental-scans) as they were the ones exposed to excess load while arriving at meaningful results.
-3. With integration of QuestDB into Fin-Maestro, making queries to filter out results you need is now possible in fraction of second. 
-4. Fin-Maestro is now 46% faster than before with smart caching.
-5. QuestDB Console Snaps:
+### 🚀 Introducing [Fin-Maestro-Kin](https://github.com/devfinwiz/Fin-Maestro-Kin):
+   Our new all-in-one finance API, designed to revolutionize financial data analysis and processing.
+  
+   ✔ Seamlessly fetch historical data, analyze market trends, and evaluate sentiment with ease.
+   
+   ⚡ Empowered with FastAPI brilliance, offering lightning-fast performance and scalability.
+   
+   📦 Publish your own financial applications powered by Fin-Maestro-Kin and witness unparalleled insights into the market.
+   
+   🌟 To get started, install Fin-Maestro-Kin with:
+      ```
+      pip install fin-maestro-kin
+      ```
+   
+   🔗 [View Fin-Maestro-Kin on PyPI](https://pypi.org/project/fin-maestro-kin/)
+<p align="center">
+<img width="294" alt="image" src="https://github.com/devfinwiz/Fin-Maestro-Kin/assets/78873223/9a6e71e2-2867-49c5-b930-980a871bcb34">
+</p>
+<div align="center">
 
-   <img width="958" alt="Quest1" src="https://github.com/devfinwiz/Fin-Maestro-Web/assets/78873223/ab59b378-5ac9-4957-afc0-654fed0abab7">
-   <img width="956" alt="quest2" src="https://github.com/devfinwiz/Fin-Maestro-Web/assets/78873223/41043b2d-ab25-4721-b3dd-061fde7405f5">
 
 ![](https://i.imgur.com/waxVImv.png)
 
