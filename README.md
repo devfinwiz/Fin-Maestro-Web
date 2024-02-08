@@ -60,8 +60,6 @@
 <p align="center">
 <img width="294" alt="image" src="https://github.com/devfinwiz/Fin-Maestro-Kin/assets/78873223/9a6e71e2-2867-49c5-b930-980a871bcb34">
 </p>
-<div align="center">
-
 
 ![](https://i.imgur.com/waxVImv.png)
 
