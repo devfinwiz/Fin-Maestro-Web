@@ -1,7 +1,7 @@
-1.**Feature 1**: Alternative frontend using Gradio to avoid complete dependency on Vue.JS 
+1.**Feature 1**: Alternative frontend (only for key modules) using Gradio to avoid complete dependency on Vue.JS 
 
    - Description: This alternative frontend will ensure ease of deployment for Fin-Maestro modules without involving any new language or framework that may shoot up dependencies. **
-   - [![Status](https://img.shields.io/badge/Status-In%20Progress-brightgreen)]()
+   - [![Status](https://img.shields.io/badge/Status-Done-brightgreen)]()
    - Development Branch: [Gradio Integration](https://github.com/devfinwiz/Fin-Maestro/tree/gradioIntegration)
    - PR: [Common Driver](https://github.com/devfinwiz/Fin-Maestro/pull/22)
 
