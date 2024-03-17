@@ -51,11 +51,6 @@
    
    📦 Publish your own financial applications powered by Fin-Maestro-Kin and witness unparalleled insights into the market.
    
-   🌟 To get started, install Fin-Maestro-Kin with:
-      ```
-      pip install fin-maestro-kin
-      ```
-   
    🔗 [View Fin-Maestro-Kin on PyPI](https://pypi.org/project/fin-maestro-kin/)
 <p align="center">
 <img width="294" alt="image" src="https://github.com/devfinwiz/Fin-Maestro-Kin/assets/78873223/9a6e71e2-2867-49c5-b930-980a871bcb34">
